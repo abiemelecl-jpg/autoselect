@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
+        crossorigin="anonymous"></script>
+  <style>
+    .ads-wrapper {
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ads-wrapper ins {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAV -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">
+            <div class="logo-icon">AS</div>
+            <div>
+              <div>AutoSelect</div>
+              <small style="font-size: 0.7rem; color: var(--muted);">Carros usados certificados</small>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#autos">Autos</a>
+            <a href="#categorias">Categorías</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#publicar" class="nav-cta">
+              Publica tu carro
+              <span>➜</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Verificados + Informe mecánico incluido
+          </div>
+          <h1 class="hero-title">
+            Encuentra tu próximo <span>carro usado</span> con total confianza.
+          </h1>
+          <p class="hero-subtitle">
+            Compara precios, historial y kilometraje de vehículos usados revisados por expertos.
+            Sin sorpresas ocultas, sin regateos incómodos: solo autos listos para manejar.
+          </p>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <strong>1,250+</strong>
+              autos publicados
+            </div>
+            <div class="hero-metric">
+              <strong>48h</strong>
+              promedio en encontrar comprador
+            </div>
+            <div class="hero-metric">
+              <strong>4.9/5</strong>
+              satisfacción de clientes
+            </div>
+          </div>
+
+          <div class="hero-search-card" id="buscador">$1</div>
+          <div class="ads-wrapper">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4027729234815917"
+                 data-ad-slot="PON_AQUI_SLOT_HERO"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+              <div style="font-size: 0.8rem; color: var(--muted);">
+                <strong id="countVisible">0</strong> autos disponibles según tus filtros
+              </div>
+            </div>
+
+            <div class="filters">
+              <div class="filter-field">
+                <label for="searchText">Buscar (marca o modelo)</label>
+                <input
+                  type="text"
+                  id="searchText"
+                  placeholder="Ej. Toyota Corolla"
+                />
+              </div>
+              <div class="filter-field">
+                <label for="filterTipo">Tipo</label>
+                <select id="filterTipo">
+                  <option value="">Cualquiera</option>
+                  <option value="Sedán">Sedán</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Pickup">Pickup</option>
+                  <option value="Hatchback">Hatchback</option>
+                </select>
+              </div>
+              <div class="filter-field">
+                <label for="filterAnio">Año mínimo</label>
+                <select id="filterAnio">
+                  <option value="">Cualquiera</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2018">2018</option>
+                  <option value="2016">2016</option>
+                </select>
+              </div>
+              <div class="filter-field">
+                <label for="filterPrecio">Precio máximo (USD)</label>
+                <input
+                  type="number"
+                  id="filterPrecio"
+                  placeholder="Ej. 15000"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <div class="search-actions">
+              <button class="btn btn-primary" id="btnAplicar">
+                <span class="btn-icon">🔎</span>
+                Aplicar filtros
+              </button>
+              <button class="btn btn-ghost" id="btnLimpiar">
+                Limpiar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="car-card">
+            <div class="car-card-header">
+              <div class="car-chip">
+                ⭐ Selección del mes
+              </div>
+              <div class="car-price-tag">
+                $18,900
+                <small>Financia desde $320/mes</small>
+              </div>
+            </div>
+            <div class="car-image-wrapper">
+              <div class="car-gradient"></div>
+              <div class="car-body">
+                <div class="car-shape">
+                  <div class="car-window"></div>
+                  <div class="car-wheel car-wheel-left"></div>
+                  <div class="car-wheel car-wheel-right"></div>
+                </div>
+                <div class="car-stats">
+                  <div>
+                    <strong>Honda Civic 2021</strong><br />
+                    <span>Único dueño · Full extras</span>
+                  </div>
+                  <div style="text-align: right;">
+                    <div>34,000 km</div>
+                    <span>Garantía 12 meses</span>
+                  </div>
+                </div>
+              </div>
+              <div class="car-badge">Certificado</div>
+            </div>
+          </div>
+
+          <div class="hero-floating-card">
+            <strong>+3 personas</strong>
+            están viendo este modelo ahora mismo.
+            <small>Actualizado hace 5 minutos.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTOS DESTACADOS -->
+    <main>
+      <section class="section" id="autos">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Autos destacados</h2>
+              <p class="section-subtitle">
+                Explora una selección de vehículos usados con historial verificado,
+                mantenimiento al día y opción de prueba de manejo.
+              </p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--muted);">
+              Haz clic en <strong>Contactar</strong> para hablar con el vendedor.
+            </div>
+          </div>
+
+          <div class="vehicle-grid" id="vehicleList">$1</div>
+          <div class="ads-wrapper">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4027729234815917"
+                 data-ad-slot="PON_AQUI_SLOT_AUTOS"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORÍAS -->
+      <section class="section" id="categorias">$1</section>
+
+      <!-- PUBLICAR CARRO PAGO -->
+      <section class="section" id="publicar">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Publica tu carro por $10</h2>
+              <p class="section-subtitle">
+                Cobraremos una tarifa única de <strong>$10</strong> por cada carro publicado. El pago se realiza con tarjeta
+                a través de PayPal (tarjeta o saldo) y llega automáticamente a tu cuenta de PayPal.
+              </p>
+            </div>
+          </div>
+          <p style="font-size:0.9rem; color:var(--muted); max-width:36rem; margin-bottom:0.9rem;">
+            Después del pago, regresa a esta página y llena el formulario de la sección "Contacto" con los datos de tu vehículo.
+          </p>
+          <div class="ads-wrapper" style="margin-top:0.5rem;">
+            <a href="https://www.paypal.com/paypalme/miautopanama/10" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.4rem;">
+              💳 Pagar publicación $10
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPINIONES Y CONTACTO -->
+      <section class="section" id="opiniones">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+              <p class="section-subtitle">
+                Más que una compra, una experiencia segura. Escucha a quienes ya
+                encontraron su próximo carro usado con AutoSelect.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-column">
+            <div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-user">
+                    <div class="avatar">M</div>
+                    <div class="testimonial-user-info">
+                      <strong>María González</strong>
+                      <span>Compró un Kia Rio 2020</span>
+                    </div>
+                  </div>
+                  <div class="testimonial-stars">
+                    ★★★★★
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  “Tenía miedo de comprar un carro usado, pero el informe mecánico y la
+                  asesoría que recibí me dieron mucha tranquilidad. Todo el proceso fue
+                  rápido y transparente.”
+                </div>
+                <div class="testimonial-footer">
+                  <span>Entrega en 3 días hábiles.</span>
+                  <span>Verificado hace 2 meses.</span>
+                </div>
+              </div>
+
+              <div class="testimonial-card" style="margin-top: 0.7rem;">
+                <div class="testimonial-header">
+                  <div class="testimonial-user">
+                    <div class="avatar">J</div>
+                    <div class="testimonial-user-info">
+                      <strong>Juan Pérez</strong>
+                      <span>Vendió su Toyota Hilux</span>
+                    </div>
+                  </div>
+                  <div class="testimonial-stars">
+                    ★★★★★
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  “Publiqué mi pickup un viernes y el lunes ya tenía dos ofertas serias.
+                  Me ayudaron a fijar el precio correcto según el mercado.”
+                </div>
+                <div class="testimonial-footer">
+                  <span>+15 compradores interesados.</span>
+                  <span>Pago seguro y acompañado.</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="contacto">
+              <div class="contact-card">
+                <div class="contact-inner">
+                  <h3>¿Quieres vender tu carro?</h3>
+                  <p>
+                    Publica tu carro en 2 pasos:
+                  </p>
+                  <ol style="font-size:0.84rem; margin-left:1.1rem; margin-bottom:0.6rem;">
+                    <li>Paga la publicación única de <strong>$10</strong> con PayPal (tarjeta o saldo).</li>
+                    <li>Llena el formulario con los datos de tu vehículo.</li>
+                  </ol>
+                  <a href="https://www.paypal.com/paypalme/miautopanama/10" class="btn btn-primary" style="margin-bottom:0.8rem; display:inline-flex; align-items:center; gap:0.4rem;">
+                    💳 Pagar publicación $10
+                  </a>
+                  <div class="ads-wrapper">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4027729234815917"
+                         data-ad-slot="PON_AQUI_SLOT_CONTACTO"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                  </div>
+                  <form class="contact-form" onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido la información de tu carro.');">
+                    <div class="contact-field">
+                      <label for="nombre">Nombre completo</label>
+                      <input type="text" id="nombre" placeholder="Ej. Carlos Rodríguez" required />
+                    </div>
+                    <div class="contact-field">
+                      <label for="email">Correo electrónico</label>
+                      <input type="email" id="email" placeholder="tu@correo.com" required />
+                    </div>
+                    <div class="contact-field">
+                      <label for="telefono">Teléfono / WhatsApp</label>
+                      <input type="tel" id="telefono" placeholder="Ej. +507 6000-0000" required />
+                    </div>
+                    <div class="contact-field">
+                      <label for="marca">Marca del vehículo</label>
+                      <input type="text" id="marca" placeholder="Ej. Toyota, Kia, Hyundai" required />
+                    </div>
+                    <div class="contact-field">
+                      <label for="modelo">Modelo</label>
+                      <input type="text" id="modelo" placeholder="Ej. Corolla, Rio, Tucson" required />
+                    </div>
+                    <div class="contact-field" style="display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.5rem;">
+                      <div class="contact-field">
+                        <label for="anio">Año</label>
+                        <input type="number" id="anio" placeholder="Ej. 2019" min="1990" max="2100" required />
+                      </div>
+                      <div class="contact-field">
+                        <label for="km">Kilometraje aproximado</label>
+                        <input type="number" id="km" placeholder="Ej. 65000" min="0" required />
+                      </div>
+                      <div class="contact-field">
+                        <label for="precio">Precio deseado (USD)</label>
+                        <input type="number" id="precio" placeholder="Ej. 12500" min="0" required />
+                      </div>
+                    </div>
+                    <div class="contact-field">
+                      <label for="ciudad">Ciudad / Provincia</label>
+                      <input type="text" id="ciudad" placeholder="Ej. Ciudad de Panamá, David, Colón" required />
+                    </div>
+                    <div class="contact-field">
+                      <label for="fotos">Enlace a fotos del vehículo</label>
+                      <input type="url" id="fotos" placeholder="Link de Google Drive, Instagram o carpeta compartida" />
+                    </div>
+                    <div class="contact-field">
+                      <label for="detalle">Comentarios adicionales</label>
+                      <textarea id="detalle" placeholder="Estado general, extras, detalles a mencionar..." required></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">
+                      Enviar información del carro
+                    </button>
+                    <div class="contact-info">
+                      Recuerda: primero realiza el pago de <strong>$10</strong> por publicación mediante PayPal y luego envíanos los datos de tu vehículo con este formulario.<br />
+                      <strong>Horario:</strong> Lunes a sábado de 9:00 a.m. a 6:00 p.m.
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div>© <span id="year"></span> AutoSelect · Carros usados de confianza.</div>
+          <div class="footer-links">
+            <a href="#buscador">Buscar carro</a>
+            <a href="#contacto">Publicar carro</a>
+            <a href="#opiniones">Opiniones</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Datos de ejemplo de vehículos
+    const vehicles = [
+      {
+        id: 1,
+        marca: "Toyota",
+        modelo: "Corolla",
+        anio: 2019,
+        tipo: "Sedán",
+        precio: 14500,
+        kilometraje: 52000,
+        ubicacion: "Ciudad de Panamá",
+        transmision: "Automático",
+        combustible: "Gasolina",
+        etiqueta: "Nuevo ingreso",
+        imagen: "https://via.placeholder.com/400x220?text=Toyota+Corolla"
+      },
+      {
+        id: 2,
+        marca: "Hyundai",
+        modelo: "Tucson",
+        anio: 2021,
+        tipo: "SUV",
+        precio: 22500,
+        kilometraje: 31000,
+        ubicacion: "San Miguelito",
+        transmision: "Automático",
+        combustible: "Diésel",
+        etiqueta: "Garantía agencia",
+        imagen: "https://via.placeholder.com/400x220?text=Hyundai+Tucson"
+      },
+      {
+        id: 3,
+        marca: "Kia",
+        modelo: "Rio",
+        anio: 2020,
+        tipo: "Sedán",
+        precio: 13200,
+        kilometraje: 43000,
+        ubicacion: "La Chorrera",
+        transmision: "Manual",
+        combustible: "Gasolina",
+        etiqueta: "Único dueño",
+        imagen: "https://via.placeholder.com/400x220?text=Kia+Rio"
+      },
+      {
+        id: 4,
+        marca: "Nissan",
+        modelo: "Frontier",
+        anio: 2018,
+        tipo: "Pickup",
+        precio: 18900,
+        kilometraje: 78000,
+        ubicacion: "David",
+        transmision: "Manual",
+        combustible: "Diésel",
+        etiqueta: "Ideal trabajo",
+        imagen: "https://via.placeholder.com/400x220?text=Nissan+Frontier"
+      },
+      {
+        id: 5,
+        marca: "Mazda",
+        modelo: "CX-5",
+        anio: 2022,
+        tipo: "SUV",
+        precio: 28900,
+        kilometraje: 19000,
+        ubicacion: "Ciudad de Panamá",
+        transmision: "Automático",
+        combustible: "Gasolina",
+        etiqueta: "Como nuevo",
+        imagen: "https://via.placeholder.com/400x220?text=Mazda+CX-5"
+      },
+      {
+        id: 6,
+        marca: "Volkswagen",
+        modelo: "Golf",
+        anio: 2017,
+        tipo: "Hatchback",
+        precio: 11800,
+        kilometraje: 87000,
+        ubicacion: "Colón",
+        transmision: "Automático",
+        combustible: "Gasolina",
+        etiqueta: "Precio rebajado",
+        imagen: "https://via.placeholder.com/400x220?text=VW+Golf"
+      }
+    ];
+
+    const vehicleList = document.getElementById("vehicleList");
+    const searchText = document.getElementById("searchText");
+    const filterTipo = document.getElementById("filterTipo");
+    const filterAnio = document.getElementById("filterAnio");
+    const filterPrecio = document.getElementById("filterPrecio");
+    const btnAplicar = document.getElementById("btnAplicar");
+    const btnLimpiar = document.getElementById("btnLimpiar");
+    const countVisible = document.getElementById("countVisible");
+    const yearSpan = document.getElementById("year");
+
+    yearSpan.textContent = new Date().getFu
