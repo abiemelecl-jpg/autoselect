@@ -6,19 +6,16 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-  <title>AUTOSPM – Autos usados en Panamá | Compra y venta segura</title>
+  <title>Autospm – Autos usados en Panamá | Compra y venta segura</title>
   <meta
     name="description"
-    content="AUTOSPM es tu plataforma para comprar y vender autos usados en Panamá. Publica tu vehículo, encuentra ofertas y recibe asesoría para una compra segura."
+    content="Autospm es tu plataforma para comprar y vender autos usados en Panamá. Publica tu vehículo, encuentra ofertas y realiza una compra segura."
   />
   <link rel="canonical" href="https://autospm.autos/" />
 
-  <!-- Google AdSense: USA TU CLIENT ID REAL -->
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
-    crossorigin="anonymous"
-  ></script>
+  <!-- Google AdSense (tu código) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
+     crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -418,17 +415,6 @@
       font-size: 0.9rem;
     }
 
-    /* Ads wrapper */
-    .ads-wrapper {
-      margin: 1rem 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .ads-wrapper ins {
-      max-width: 100%;
-    }
-
     /* SECTION BASE */
     .section {
       padding: 2.2rem 0 1.8rem;
@@ -734,11 +720,6 @@
       margin-bottom: 0.3rem;
     }
 
-    .legal-block a {
-      color: var(--accent);
-      font-size: 0.75rem;
-    }
-
     /* FOOTER */
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -901,7 +882,7 @@
           <div class="logo">
             <div class="logo-icon">AP</div>
             <div>
-              <div class="logo-title">AUTOSPM</div>
+              <div class="logo-title">Autospm</div>
               <div class="logo-sub">Autos usados en Panamá</div>
             </div>
           </div>
@@ -939,22 +920,6 @@
             </div>
             <div
               class="slide"
-              style="background-image:url('https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1200');"
-            >
-              <div class="slide-content">
-                <div class="slide-badge">
-                  ✅ Compra segura
-                </div>
-                <div class="slide-title">
-                  Autos para ciudad, trabajo y familia en un solo lugar
-                </div>
-                <div class="slide-text">
-                  Sedanes, SUV, pickups y más. Filtra por precio, año y kilometraje.
-                </div>
-              </div>
-            </div>
-            <div
-              class="slide"
               style="background-image:url('https://images.pexels.com/photos/21270/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200');"
             >
               <div class="slide-content">
@@ -962,13 +927,13 @@
                   🚗 Publica tu auto
                 </div>
                 <div class="slide-title">
-                  Vende tu auto más rápido con AUTOSPM
+                  Vende tu auto más rápido con Autospm
                 </div>
                 <div class="slide-text">
-                  Llega a cientos de compradores que buscan autos usados en Panamá.
+                  Llega a compradores que buscan autos usados en Panamá todos los días.
                 </div>
               </div>
-              </div>
+            </div>
             <div class="slider-controls">
               <span class="dot active" onclick="goToSlide(0)"></span>
               <span class="dot" onclick="goToSlide(1)"></span>
@@ -1003,7 +968,7 @@
                   <strong>4.9/5</strong>
                   satisfacción de usuarios
                 </div>
-                </div>
+              </div>
 
               <div class="hero-search-card" id="buscador">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
@@ -1061,23 +1026,10 @@
                   </button>
                 </div>
               </div>
-
-              <!-- Bloque AdSense principal (reemplaza el data-ad-slot por tu ID real) -->
-              <div class="ads-wrapper">
-                <ins class="adsbygoogle"
-                  style="display:block"
-                  data-ad-client="ca-pub-4027729234815917"
-                  data-ad-slot="PON_AQUI_TU_SLOT_ID_HERO"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-              </div>
             </div>
 
             <div class="hero-right-card">
-              <div class="hero-right-title">¿Cómo funciona AUTOSPM?</div>
+              <div class="hero-right-title">¿Cómo funciona Autospm?</div>
               <p class="hero-right-sub">
                 Publica tu auto en pocos pasos y recibe mensajes directos de compradores en Panamá.
               </p>
@@ -1128,24 +1080,11 @@
             </div>
             <div style="font-size:0.78rem; color:var(--muted); text-align:right;">
               Haz clic en cualquier auto para ver más detalles.<br />
-              Luego presiona <strong>Contactar</strong> para comunicarte con el vendedor.
+              Luego presiona <strong>Ver detalles</strong> para ver la ficha completa.
             </div>
           </div>
 
           <div class="vehicle-grid" id="vehicleList"></div>
-
-          <!-- Bloque AdSense dentro de la lista de autos -->
-          <div class="ads-wrapper">
-            <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-4027729234815917"
-              data-ad-slot="PON_AQUI_TU_SLOT_ID_AUTOS"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>
         </div>
       </section>
 
@@ -1247,7 +1186,7 @@
         <div class="container">
           <div class="section-header">
             <div>
-              <h2 class="section-title">Publica tu auto en AUTOSPM</h2>
+              <h2 class="section-title">Publica tu auto en Autospm</h2>
               <p class="section-subtitle">
                 Comparte la información de tu vehículo y un enlace a tus fotos. Los interesados podrán
                 contactarte directamente por WhatsApp o correo.
@@ -1258,19 +1197,6 @@
             Para una mejor visibilidad, incluye fotos claras, una descripción honesta y un precio acorde al mercado.
             Puedes compartir el enlace de tu auto con posibles compradores o publicarlo en redes sociales.
           </p>
-
-          <!-- Espacio para un futuro botón de pago o promoción -->
-          <div class="ads-wrapper">
-            <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-4027729234815917"
-              data-ad-slot="PON_AQUI_TU_SLOT_ID_PUBLICAR"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>
         </div>
       </section>
 
@@ -1279,7 +1205,7 @@
         <div class="container">
           <div class="section-header">
             <div>
-              <h2 class="section-title">Lo que dicen quienes usan AUTOSPM</h2>
+              <h2 class="section-title">Lo que dicen quienes usan Autospm</h2>
               <p class="section-subtitle">
                 Testimonios ficticios de ejemplo. Puedes editarlos con experiencias reales de tus clientes a medida que el
                 sitio crezca.
@@ -1371,18 +1297,6 @@
                       adaptarlo a tu flujo real de comunicación.
                     </div>
                   </form>
-
-                  <div class="ads-wrapper">
-                    <ins class="adsbygoogle"
-                      style="display:block"
-                      data-ad-client="ca-pub-4027729234815917"
-                      data-ad-slot="PON_AQUI_TU_SLOT_ID_CONTACTO"
-                      data-ad-format="auto"
-                      data-full-width-responsive="true"></ins>
-                    <script>
-                      (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1423,7 +1337,7 @@
           <div class="legal-block" id="privacidad">
             <h3>Política de privacidad</h3>
             <p>
-              AUTOSPM respeta tu privacidad. No vendemos ni compartimos tus datos personales con terceros sin
+              Autospm respeta tu privacidad. No vendemos ni compartimos tus datos personales con terceros sin
               tu consentimiento. La información que proporcionas a través de formularios se utiliza únicamente
               para atender tus consultas o ayudarte con la publicación de tu auto.
             </p>
@@ -1447,7 +1361,7 @@
           <div class="legal-block" id="terminos">
             <h3>Términos y condiciones</h3>
             <p>
-              AUTOSPM es una plataforma informativa para la publicación y consulta de autos usados en Panamá.
+              Autospm es una plataforma informativa para la publicación y consulta de autos usados en Panamá.
               No nos hacemos responsables de acuerdos privados entre compradores y vendedores, ni de la veracidad
               absoluta de la información proporcionada por terceros.
             </p>
@@ -1465,7 +1379,7 @@
       <div class="container">
         <div class="footer-inner">
           <div>
-            © <span id="year"></span> AUTOSPM · Autos usados en Panamá.
+            © <span id="year"></span> Autospm · Autos usados en Panamá.
           </div>
           <div class="footer-links">
             <a href="#autos">Autos en venta</a>
@@ -1683,7 +1597,7 @@
       modalImage.style.backgroundImage = `url('${v.foto}')`;
       modalTitle.textContent = `${v.marca} ${v.modelo} ${v.anio}`;
       modalMeta.textContent = `${v.kilometraje.toLocaleString()} km · ${v.transmision} · ${v.combustible}`;
-      modalSpecs.textContent = `Este es un ejemplo de ficha de auto usado dentro de AUTOSPM. Cuando publiques vehículos reales, aquí podrás mostrar más detalles como número de dueños, revisado, extras y estado general.`;
+      modalSpecs.textContent = `Este es un ejemplo de ficha de auto usado dentro de Autospm. Cuando publiques vehículos reales, aquí podrás mostrar más detalles como número de dueños, revisado, extras y estado general.`;
       modalLocation.textContent = `Ubicación aproximada: ${v.ubicacion}.`;
       modal.style.display = "block";
     }
