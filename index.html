@@ -1,1643 +1,495 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Autospm – Autos usados en Panamá | Compra y venta segura</title>
-  <meta
-    name="description"
-    content="Autospm es tu plataforma para comprar y vender autos usados en Panamá. Publica tu vehículo, encuentra ofertas y realiza una compra segura."
-  />
-  <link rel="canonical" href="https://autospm.autos/" />
-
-  <!-- Google AdSense (tu código) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
-     crossorigin="anonymous"></script>
-
-  <style>
-    :root {
-      --bg: #050509;
-      --bg-alt: #0e0e15;
-      --card: #15151f;
-      --primary: #e4252c;
-      --primary-soft: rgba(228, 37, 44, 0.12);
-      --border: #282838;
-      --text: #f7f7ff;
-      --muted: #9a9ab2;
-      --accent: #ffcc33;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #202031 0, #050509 52%);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.2rem;
-    }
-
-    /* NAV */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5, 5, 14, 0.95), rgba(5, 5, 14, 0.5));
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-      gap: 1rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-
-    .logo-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 30% 0, #ff6767, #8b0000);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .logo-title {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: 1rem;
-    }
-
-    .logo-sub {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      font-size: 0.88rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    .nav-cta {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: radial-gradient(circle at top left, var(--primary-soft), transparent);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: #fff !important;
-    }
-
-    /* HERO + SLIDER */
-    .hero {
-      padding: 1.5rem 0 2.5rem;
-    }
-
-    .hero-top {
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: radial-gradient(circle at top, #252538, #050509 60%);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-slider {
-      width: 100%;
-      height: 48vh;
-      min-height: 260px;
-      max-height: 360px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slide {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      background-size: cover;
-      background-position: center;
-      transition: left 0.8s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.4rem;
-    }
-
-    .slide::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 50%);
-    }
-
-    .slide-content {
-      position: relative;
-      z-index: 2;
-      max-width: 460px;
-    }
-
-    .slide-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.65);
-      font-size: 0.8rem;
-    }
-
-    .slide-title {
-      margin-top: 0.5rem;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .slide-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
-
-    .slide.active {
-      left: 0;
-    }
-
-    .slide.prev {
-      left: -100%;
-    }
-
-    .slider-controls {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 3;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .dot.active {
-      background: #fff;
-      width: 20px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      gap: 1.8rem;
-      padding: 1.3rem 1.4rem 1.8rem;
-    }
-
-    .hero-left {
-      padding-right: 0.8rem;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.24rem 0.6rem;
-      font-size: 0.76rem;
-      border-radius: 999px;
-      background: rgba(14, 197, 125, 0.12);
-      color: #a8f5d1;
-      border: 1px solid rgba(14, 197, 125, 0.3);
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #0ec57d;
-      box-shadow: 0 0 8px rgba(14, 197, 125, 0.9);
-    }
-
-    .hero-title {
-      font-size: 1.9rem;
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-title span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      font-size: 0.93rem;
-      color: var(--muted);
-      max-width: 34rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-bottom: 1rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-metric strong {
-      display: block;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .hero-search-card {
-      background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.06), rgba(8, 8, 18, 1));
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 0.9rem;
-      margin-top: 0.3rem;
-    }
-
-    .filters {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
-    }
-
-    .filter-field label {
-      display: block;
-      margin-bottom: 0.2rem;
-      color: var(--muted);
-    }
-
-    .filter-field input,
-    .filter-field select {
-      width: 100%;
-      padding: 0.4rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(4, 4, 10, 0.9);
-      color: var(--text);
-      font-size: 0.78rem;
-    }
-
-    .search-actions {
-      display: flex;
-      gap: 0.7rem;
-      margin-top: 0.7rem;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 0.45rem 0.9rem;
-      font-size: 0.8rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #ff4141, #b10404);
-      color: #fff;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: var(--muted);
-    }
-
-    .hero-right-card {
-      background: radial-gradient(circle at top, #26263a, #101019);
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .hero-right-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .hero-right-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-right-pill {
-      font-size: 0.75rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 0.38rem 0.6rem;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: #b5f3c8;
-    }
-
-    .hero-right-stats {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      margin-top: 0.4rem;
-    }
-
-    .hero-right-stats strong {
-      display: block;
-      font-size: 0.9rem;
-    }
-
-    /* SECTION BASE */
-    .section {
-      padding: 2.2rem 0 1.8rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.86rem;
-      color: var(--muted);
-      max-width: 32rem;
-    }
-
-    /* VEHICLES GRID */
-    .vehicle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .vehicle-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-      cursor: pointer;
-      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-    }
-
-    .vehicle-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 204, 51, 0.7);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .vehicle-image {
-      position: relative;
-      height: 165px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .vehicle-badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 0.25rem 0.5rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-    }
-
-    .vehicle-body {
-      padding: 0.7rem 0.8rem 0.6rem;
-      font-size: 0.8rem;
-    }
-
-    .vehicle-title-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .vehicle-title {
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .vehicle-price {
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 0.9rem;
-    }
-
-    .vehicle-meta {
-      color: var(--muted);
-      font-size: 0.76rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .vehicle-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-    }
-
-    .vehicle-tag {
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 999px;
-      padding: 0.18rem 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.7rem;
-    }
-
-    .vehicle-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0.8rem 0.7rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.75rem;
-    }
-
-    .vehicle-location {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      color: var(--muted);
-    }
-
-    .vehicle-cta {
-      font-size: 0.75rem;
-      padding-inline: 0.7rem;
-    }
-
-    /* BLOG */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .blog-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.8rem 0.9rem;
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .blog-card h3 {
-      font-size: 0.95rem;
-    }
-
-    .blog-meta {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .blog-card a.read-more {
-      margin-top: 0.2rem;
-      font-size: 0.78rem;
-      color: var(--accent);
-    }
-
-    /* OPINIONES & CONTACTO */
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-      gap: 1.5rem;
-    }
-
-    .testimonial-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.8rem 0.9rem;
-      font-size: 0.8rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .testimonial-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.4rem;
-    }
-
-    .testimonial-user {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .avatar {
-      background: radial-gradient(circle at top, #ff6767, #8b0000);
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .testimonial-user-info span {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .testimonial-stars {
-      font-size: 0.8rem;
-      color: #ffdc5e;
-    }
-
-    .testimonial-text {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .testimonial-footer {
-      font-size: 0.7rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .contact-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1rem;
-      font-size: 0.8rem;
-    }
-
-    .contact-inner h3 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-inner p {
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .contact-form {
-      margin-top: 0.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .contact-field label {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.12rem;
-    }
-
-    .contact-field input,
-    .contact-field textarea {
-      width: 100%;
-      padding: 0.4rem 0.5rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(5, 5, 11, 0.9);
-      color: var(--text);
-      font-size: 0.78rem;
-    }
-
-    .contact-field textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .contact-info {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
-
-    /* LEGALES */
-    .legal-section {
-      background: #050509;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1.5rem 0 1.2rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .legal-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .legal-block h3 {
-      font-size: 0.86rem;
-      margin-bottom: 0.35rem;
-      color: #f0f0ff;
-    }
-
-    .legal-block p {
-      margin-bottom: 0.3rem;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 0.9rem 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-      background: #030307;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 0.9rem;
-    }
-
-    .footer-links a {
-      font-size: 0.76rem;
-    }
-
-    /* MODAL VEHÍCULO */
-    .vehicle-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 9999;
-      padding: 1.2rem;
-      overflow-y: auto;
-      backdrop-filter: blur(4px);
-    }
-
-    .modal-content {
-      max-width: 640px;
-      margin: 2.2rem auto;
-      background: #0c0c14;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85);
-    }
-
-    .modal-image {
-      height: 230px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .modal-body {
-      padding: 0.9rem 1rem 1.1rem;
-      font-size: 0.86rem;
-    }
-
-    .modal-body h2 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .modal-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .modal-specs {
-      font-size: 0.8rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .modal-location {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .modal-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .modal-close {
-      margin-top: 0.4rem;
-      width: 100%;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      border: none;
-      background: #222;
-      color: #fff;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-left {
-        padding-right: 0;
-      }
-      .vehicle-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .blog-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .two-column {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .legal-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-      .hero-top {
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-      }
-      .hero-grid {
-        padding: 1rem 1rem 1.4rem;
-      }
-      .filters {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .vehicle-grid,
-      .blog-grid,
-      .legal-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .section {
-        padding-inline: 0.7rem;
-      }
-      .modal-content {
-        margin: 3rem auto;
-      }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOSPM | La Colección Premium</title>
+    
+    <!-- Tipografía Premium: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO GENERAL & VARIABLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #d4af37; /* Dorado Premium */
+            --accent-hover: #b5952f;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER / NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links a {
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(10,10,10,1)), 
+                        url('https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 b { font-weight: 800; }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease;
+        }
+
+        .btn-scroll {
+            color: var(--text-main);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* --- FILTERS --- */
+        .catalog-section {
+            padding: 80px 5%;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-secondary);
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* --- CAR GRID --- */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .car-card {
+            background-color: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .card-img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: #000;
+            padding: 5px 10px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .car-brand {
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .car-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 0;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-item i {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .spec-item span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-btn {
+            background-color: var(--text-main);
+            color: #000;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050505;
+            padding: 50px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Ocultar menú en móvil para simplificar */
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
+
     <!-- NAV -->
     <header>
-      <div class="container">
-        <nav class="nav">
-          <div class="logo">
-            <div class="logo-icon">AP</div>
-            <div>
-              <div class="logo-title">Autospm</div>
-              <div class="logo-sub">Autos usados en Panamá</div>
-            </div>
-          </div>
-          <div class="nav-links">
-            <a href="#autos">Autos en venta</a>
-            <a href="#blog">Blog</a>
-            <a href="#opiniones">Opiniones</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#publicar" class="nav-cta">Publica tu auto</a>
-          </div>
+        <div class="logo">AUTOS<span>PM</span></div>
+        <nav class="nav-links">
+            <a href="#">Showroom</a>
+            <a href="#">Marcas</a>
+            <a href="#">Contacto</a>
         </nav>
-      </div>
     </header>
 
-    <!-- HERO + SLIDER -->
+    <!-- HERO -->
     <section class="hero">
-      <div class="container">
-        <div class="hero-top">
-          <div class="hero-slider">
-            <div
-              class="slide"
-              style="background-image:url('https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1200');"
-            >
-              <div class="slide-content">
-                <div class="slide-badge">
-                  🔥 Oferta destacada
-                </div>
-                <div class="slide-title">
-                  Encuentra tu próximo auto usado al mejor precio
-                </div>
-                <div class="slide-text">
-                  Vehículos revisados, fotos reales y trato directo con el vendedor.
-                </div>
-              </div>
-            </div>
-            <div
-              class="slide"
-              style="background-image:url('https://images.pexels.com/photos/21270/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200');"
-            >
-              <div class="slide-content">
-                <div class="slide-badge">
-                  🚗 Publica tu auto
-                </div>
-                <div class="slide-title">
-                  Vende tu auto más rápido con Autospm
-                </div>
-                <div class="slide-text">
-                  Llega a compradores que buscan autos usados en Panamá todos los días.
-                </div>
-              </div>
-            </div>
-            <div class="slider-controls">
-              <span class="dot active" onclick="goToSlide(0)"></span>
-              <span class="dot" onclick="goToSlide(1)"></span>
-              <span class="dot" onclick="goToSlide(2)"></span>
-            </div>
-          </div>
-
-          <div class="hero-grid">
-            <div class="hero-left">
-              <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                Compra y venta de autos usados en Panamá
-              </div>
-              <h1 class="hero-title">
-                Encuentra tu próximo <span>auto usado</span> con seguridad y mejor precio.
-              </h1>
-              <p class="hero-subtitle">
-                Explora autos usados publicados por particulares y agencias en Panamá. Filtra por tipo,
-                año, precio y ubicación. Publicar es sencillo y los interesados te contactan directamente.
-              </p>
-
-              <div class="hero-metrics">
-                <div class="hero-metric">
-                  <strong>+1,200</strong>
-                  búsquedas de autos al mes
-                </div>
-                <div class="hero-metric">
-                  <strong>48 h</strong>
-                  tiempo promedio en recibir ofertas
-                </div>
-                <div class="hero-metric">
-                  <strong>4.9/5</strong>
-                  satisfacción de usuarios
-                </div>
-              </div>
-
-              <div class="hero-search-card" id="buscador">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
-                  <strong style="font-size:0.9rem;">Buscador rápido de autos</strong>
-                  <span style="font-size:0.75rem; color:var(--muted);">
-                    <strong id="countVisible">0</strong> autos disponibles
-                  </span>
-                </div>
-                <div class="filters">
-                  <div class="filter-field">
-                    <label for="searchText">Marca o modelo</label>
-                    <input
-                      type="text"
-                      id="searchText"
-                      placeholder="Ej. Toyota Corolla"
-                    />
-                  </div>
-                  <div class="filter-field">
-                    <label for="filterTipo">Tipo</label>
-                    <select id="filterTipo">
-                      <option value="">Cualquiera</option>
-                      <option value="Sedán">Sedán</option>
-                      <option value="SUV">SUV</option>
-                      <option value="Pickup">Pickup</option>
-                      <option value="Hatchback">Hatchback</option>
-                    </select>
-                  </div>
-                  <div class="filter-field">
-                    <label for="filterAnio">Año mínimo</label>
-                    <select id="filterAnio">
-                      <option value="">Cualquiera</option>
-                      <option value="2024">2024</option>
-                      <option value="2023">2023</option>
-                      <option value="2022">2022</option>
-                      <option value="2020">2020</option>
-                      <option value="2018">2018</option>
-                    </select>
-                  </div>
-                  <div class="filter-field">
-                    <label for="filterPrecio">Precio máximo (USD)</label>
-                    <input
-                      type="number"
-                      id="filterPrecio"
-                      placeholder="Ej. 15000"
-                      min="0"
-                    />
-                  </div>
-                </div>
-                <div class="search-actions">
-                  <button class="btn btn-primary" id="btnAplicar">
-                    🔎 Aplicar filtros
-                  </button>
-                  <button class="btn btn-ghost" id="btnLimpiar">
-                    Limpiar
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-right-card">
-              <div class="hero-right-title">¿Cómo funciona Autospm?</div>
-              <p class="hero-right-sub">
-                Publica tu auto en pocos pasos y recibe mensajes directos de compradores en Panamá.
-              </p>
-              <div class="hero-right-pill">
-                🚗 Paso 1: Publica tu auto con fotos reales
-              </div>
-              <div class="hero-right-pill">
-                👀 Paso 2: Recibe consultas por WhatsApp o correo
-              </div>
-              <div class="hero-right-pill">
-                💰 Paso 3: Negocia y cierra la venta directamente
-              </div>
-
-              <div class="hero-right-stats">
-                <div>
-                  <strong>Publica gratis</strong>
-                  sin comisiones ocultas
-                </div>
-                <div>
-                  <strong>Fácil de usar</strong>
-                  pensado para Panamá
-                </div>
-              </div>
-              <button
-                class="btn btn-primary"
-                onclick="document.getElementById('publicar').scrollIntoView({behavior:'smooth'})"
-                style="margin-top:0.6rem; align-self:flex-start;"
-              >
-                Publicar mi auto ahora
-              </button>
-            </div>
-          </div>
+        <h1>Excelencia <br><b>En Movimiento</b></h1>
+        <p>Tu puerta de entrada a las máquinas más exclusivas del mundo. Encuentra, compara y conéctate con los distribuidores oficiales.</p>
+        <div class="btn-scroll" onclick="document.getElementById('showroom').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-chevron-down"></i>
         </div>
-      </div>
     </section>
 
-    <!-- AUTOS DESTACADOS -->
-    <main>
-      <section class="section" id="autos">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Autos usados en venta</h2>
-              <p class="section-subtitle">
-                Explora ejemplos de autos usados listos para la venta. Puedes usar el buscador de arriba para
-                filtrar por tipo de vehículo, año y rango de precio.
-              </p>
-            </div>
-            <div style="font-size:0.78rem; color:var(--muted); text-align:right;">
-              Haz clic en cualquier auto para ver más detalles.<br />
-              Luego presiona <strong>Ver detalles</strong> para ver la ficha completa.
-            </div>
-          </div>
-
-          <div class="vehicle-grid" id="vehicleList"></div>
+    <!-- SHOWROOM -->
+    <section id="showroom" class="catalog-section">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterSelection('all')">Todos</button>
+            <button class="filter-btn" onclick="filterSelection('deportivo')">Deportivos</button>
+            <button class="filter-btn" onclick="filterSelection('suv')">SUV Lujo</button>
+            <button class="filter-btn" onclick="filterSelection('electrico')">Eléctricos</button>
         </div>
-      </section>
 
-      <!-- BLOG -->
-      <section class="section" id="blog">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Guías y consejos para comprar autos usados</h2>
-              <p class="section-subtitle">
-                Aprende qué revisar antes de comprar, cómo fijar un precio justo y cuáles son los autos usados
-                más recomendados para ciudad, trabajo o familia en Panamá.
-              </p>
-            </div>
-            <div style="font-size:0.78rem; color:var(--muted);">
-              Estos artículos ayudan a que tu sitio se posicione mejor en Google (SEO).
-            </div>
-          </div>
-
-          <div class="blog-grid">
-            <article class="blog-card">
-              <h3>Los 5 autos usados más recomendados en Panamá</h3>
-              <div class="blog-meta">Guía rápida · Actualizado 2025</div>
-              <p>
-                Si estás pensando en comprar un auto usado, estos modelos destacan por su durabilidad,
-                consumo de combustible y valor de reventa.
-              </p>
-              <a href="#articulo1" class="read-more">Leer artículo completo</a>
-            </article>
-            <article class="blog-card">
-              <h3>Guía para comprar tu primer auto usado</h3>
-              <div class="blog-meta">Tips esenciales</div>
-              <p>
-                Aprende qué revisar del motor, documentos, prueba de manejo y cómo evitar sorpresas
-                después de la compra.
-              </p>
-              <a href="#articulo2" class="read-more">Leer artículo completo</a>
-            </article>
-            <article class="blog-card">
-              <h3>Cómo vender tu auto usado más rápido</h3>
-              <div class="blog-meta">Vende mejor</div>
-              <p>
-                Trucos para sacar mejores fotos, redactar una buena descripción y responder a los interesados
-                de forma efectiva.
-              </p>
-              <a href="#articulo3" class="read-more">Leer artículo completo</a>
-            </article>
-          </div>
-
-          <!-- Bloque artículos extendidos (SEO) -->
-          <div style="margin-top:1.5rem; font-size:0.86rem; color:var(--muted); display:grid; gap:1.2rem;">
-            <article id="articulo1">
-              <h3 style="font-size:1rem; margin-bottom:0.3rem;">Los 5 autos usados más recomendados en Panamá para 2025</h3>
-              <p>
-                En Panamá, muchos conductores buscan autos usados que sean económicos, fáciles de mantener y
-                que no pierdan valor tan rápido. Entre las opciones más recomendadas se encuentran modelos como
-                el <strong>Toyota Corolla</strong>, <strong>Hyundai Accent</strong>, <strong>Kia Rio</strong>,
-                <strong>Toyota Yaris</strong> y <strong>Honda Civic</strong>.
-              </p>
-              <p>
-                Estos vehículos ofrecen un buen balance entre consumo de combustible, repuestos accesibles y
-                confiabilidad mecánica. Antes de comprar uno, es recomendable revisar su historial, realizar una
-                prueba de manejo y confirmar que los documentos estén en regla.
-              </p>
-            </article>
-
-            <article id="articulo2">
-              <h3 style="font-size:1rem; margin-bottom:0.3rem;">Guía básica para comprar tu primer auto usado en Panamá</h3>
-              <p>
-                Comprar tu primer auto usado no tiene por qué ser complicado. Empieza definiendo tu presupuesto,
-                el uso que le darás y el tipo de vehículo que necesitas. Luego, revisa el estado del motor,
-                suspensión, frenos y llantas. Pide siempre una prueba de manejo.
-              </p>
-              <p>
-                Es importante asegurarse de que el número de chasis coincida con los documentos y que no existan
-                multas o trámites pendientes. Si es posible, pide la ayuda de un mecánico de confianza para una
-                revisión más profunda antes de cerrar el trato.
-              </p>
-            </article>
-
-            <article id="articulo3">
-              <h3 style="font-size:1rem; margin-bottom:0.3rem;">Cómo vender tu auto usado rápido en Panamá</h3>
-              <p>
-                Para vender tu auto más rápido, enfócate en la presentación: lava el vehículo, limpia el interior
-                y toma fotos claras desde varios ángulos. En tu publicación, incluye información honesta sobre
-                kilometraje, año, mantenimiento y cualquier detalle importante.
-              </p>
-              <p>
-                Un precio justo, basado en el mercado actual, también hará que recibas más consultas. Responder
-                rápido por WhatsApp o llamada aumenta las probabilidades de cerrar la venta en pocos días.
-              </p>
-            </article>
-          </div>
+        <div class="car-grid" id="carContainer">
+            <!-- Los carros se insertan aquí con JavaScript -->
         </div>
-      </section>
-
-      <!-- PUBLICAR AUTO (INFO) -->
-      <section class="section" id="publicar">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Publica tu auto en Autospm</h2>
-              <p class="section-subtitle">
-                Comparte la información de tu vehículo y un enlace a tus fotos. Los interesados podrán
-                contactarte directamente por WhatsApp o correo.
-              </p>
-            </div>
-          </div>
-          <p style="font-size:0.86rem; color:var(--muted); max-width:36rem; margin-bottom:0.7rem;">
-            Para una mejor visibilidad, incluye fotos claras, una descripción honesta y un precio acorde al mercado.
-            Puedes compartir el enlace de tu auto con posibles compradores o publicarlo en redes sociales.
-          </p>
-        </div>
-      </section>
-
-      <!-- OPINIONES + CONTACTO -->
-      <section class="section" id="opiniones">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Lo que dicen quienes usan Autospm</h2>
-              <p class="section-subtitle">
-                Testimonios ficticios de ejemplo. Puedes editarlos con experiencias reales de tus clientes a medida que el
-                sitio crezca.
-              </p>
-            </div>
-          </div>
-
-          <div class="two-column">
-            <div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <div class="testimonial-user">
-                    <div class="avatar">M</div>
-                    <div class="testimonial-user-info">
-                      <strong>María González</strong>
-                      <span>Compró un Kia Rio 2020</span>
-                    </div>
-                  </div>
-                  <div class="testimonial-stars">★★★★★</div>
-                </div>
-                <div class="testimonial-text">
-                  “Encontré mi auto usado en pocos días. Me ayudó mucho poder filtrar por precio y ver autos de
-                  diferentes provincias. El proceso fue sencillo.”
-                </div>
-                <div class="testimonial-footer">
-                  <span>Compra concretada en 4 días.</span>
-                  <span>Verificado hace 2 meses.</span>
-                </div>
-              </div>
-
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <div class="testimonial-user">
-                    <div class="avatar">J</div>
-                    <div class="testimonial-user-info">
-                      <strong>Juan Pérez</strong>
-                      <span>Vendió su pickup Hilux</span>
-                    </div>
-                  </div>
-                  <div class="testimonial-stars">★★★★★</div>
-                </div>
-                <div class="testimonial-text">
-                  “Publiqué mi auto y recibí varias consultas en la primera semana. Pude negociar directamente
-                  con los interesados sin intermediarios.”
-                </div>
-                <div class="testimonial-footer">
-                  <span>+10 consultas recibidas.</span>
-                  <span>Recomendado.</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="contacto">
-              <div class="contact-card">
-                <div class="contact-inner">
-                  <h3>Formulario de contacto</h3>
-                  <p>
-                    Usa este formulario para enviarnos la información de tu auto o para consultas sobre el sitio.
-                  </p>
-                  <form
-                    class="contact-form"
-                    onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido tu mensaje.');"
-                  >
-                    <div class="contact-field">
-                      <label for="nombre">Nombre completo</label>
-                      <input id="nombre" type="text" required placeholder="Ej. Carlos Rodríguez" />
-                    </div>
-                    <div class="contact-field">
-                      <label for="email">Correo electrónico</label>
-                      <input id="email" type="email" required placeholder="tu@correo.com" />
-                    </div>
-                    <div class="contact-field">
-                      <label for="telefono">Teléfono / WhatsApp</label>
-                      <input id="telefono" type="tel" required placeholder="Ej. +507 6000-0000" />
-                    </div>
-                    <div class="contact-field">
-                      <label for="detalle">Mensaje o datos de tu auto</label>
-                      <textarea
-                        id="detalle"
-                        required
-                        placeholder="Marca, modelo, año, kilometraje, precio y detalles relevantes..."
-                      ></textarea>
-                    </div>
-                    <button class="btn btn-primary" type="submit">
-                      Enviar mensaje
-                    </button>
-                    <div class="contact-info">
-                      Responderemos tan pronto como sea posible. Este formulario es solo un ejemplo y puedes
-                      adaptarlo a tu flujo real de comunicación.
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MODAL DETALLES VEHÍCULO -->
-      <div id="vehicleModal" class="vehicle-modal">
-        <div class="modal-content">
-          <div id="modalImage" class="modal-image"></div>
-          <div class="modal-body">
-            <h2 id="modalTitle"></h2>
-            <p id="modalMeta" class="modal-meta"></p>
-            <p id="modalSpecs" class="modal-specs"></p>
-            <p id="modalLocation" class="modal-location"></p>
-            <div class="modal-actions">
-              <button
-                class="btn btn-primary"
-                type="button"
-                onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})"
-              >
-                Contactar por formulario
-              </button>
-              <button class="modal-close" type="button" onclick="closeModal()">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- LEGALES -->
-    <section class="legal-section" id="legales">
-      <div class="container">
-        <div class="legal-grid">
-          <div class="legal-block" id="privacidad">
-            <h3>Política de privacidad</h3>
-            <p>
-              Autospm respeta tu privacidad. No vendemos ni compartimos tus datos personales con terceros sin
-              tu consentimiento. La información que proporcionas a través de formularios se utiliza únicamente
-              para atender tus consultas o ayudarte con la publicación de tu auto.
-            </p>
-            <p>
-              Este sitio puede utilizar cookies y tecnologías similares con fines estadísticos y de mejora de la
-              experiencia. Servicios como Google AdSense o herramientas de análisis pueden recopilar datos de uso
-              anónimos.
-            </p>
-          </div>
-          <div class="legal-block" id="cookies">
-            <h3>Uso de cookies</h3>
-            <p>
-              Utilizamos cookies para recordar tus preferencias, medir el tráfico del sitio y mostrar contenido
-              más relevante. Puedes desactivar las cookies en la configuración de tu navegador en cualquier momento.
-            </p>
-            <p>
-              Al continuar usando este sitio, se entiende que aceptas el uso básico de cookies. Te recomendamos
-              revisar las opciones de privacidad de tu navegador si deseas limitar o borrar las cookies.
-            </p>
-          </div>
-          <div class="legal-block" id="terminos">
-            <h3>Términos y condiciones</h3>
-            <p>
-              Autospm es una plataforma informativa para la publicación y consulta de autos usados en Panamá.
-              No nos hacemos responsables de acuerdos privados entre compradores y vendedores, ni de la veracidad
-              absoluta de la información proporcionada por terceros.
-            </p>
-            <p>
-              Al utilizar este sitio aceptas que debes verificar por tu cuenta el estado del vehículo, documentos
-              y condiciones de pago antes de concretar cualquier compra o venta.
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="container">
-        <div class="footer-inner">
-          <div>
-            © <span id="year"></span> Autospm · Autos usados en Panamá.
-          </div>
-          <div class="footer-links">
-            <a href="#autos">Autos en venta</a>
-            <a href="#blog">Blog</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#legales">Legales</a>
-          </div>
-        </div>
-      </div>
+        <div class="logo" style="margin-bottom: 20px;">AUTOS<span>PM</span></div>
+        <p class="footer-text">© 2024 Autospm Inc. Curaduría Automotriz.</p>
+        <p class="disclaimer">
+            Descargo de responsabilidad: Autospm no vende vehículos directamente. Somos una guía informativa que redirige a los usuarios a sitios web oficiales de fabricantes y concesionarios autorizados. Todos los precios son referenciales.
+        </p>
     </footer>
-  </div>
 
-  <script>
-    // Año en footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <!-- LOGICA JAVASCRIPT -->
+    <script>
+        // --- BASE DE DATOS DE CARROS (Datos Reales) ---
+        const cars = [
+            {
+                id: 1,
+                brand: "Porsche",
+                model: "911 GT3 RS",
+                category: "deportivo",
+                price: "$223,800",
+                hp: "518 HP",
+                accel: "3.0s",
+                image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.porsche.com"
+            },
+            {
+                id: 2,
+                brand: "Mercedes-AMG",
+                model: "G 63",
+                category: "suv",
+                price: "$179,000",
+                hp: "577 HP",
+                accel: "4.5s",
+                image: "https://images.unsplash.com/photo-1520031441872-dd59964347bb?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.mercedes-benz.com"
+            },
+            {
+                id: 3,
+                brand: "Tesla",
+                model: "Model S Plaid",
+                category: "electrico",
+                price: "$89,990",
+                hp: "1,020 HP",
+                accel: "1.99s",
+                image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.tesla.com/models"
+            },
+            {
+                id: 4,
+                brand: "Ferrari",
+                model: "296 GTB",
+                category: "deportivo",
+                price: "$342,000",
+                hp: "819 HP",
+                accel: "2.9s",
+                image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.ferrari.com"
+            },
+            {
+                id: 5,
+                brand: "Land Rover",
+                model: "Range Rover SV",
+                category: "suv",
+                price: "$234,000",
+                hp: "606 HP",
+                accel: "4.3s",
+                image: "https://images.unsplash.com/photo-1606220838315-056192d5e927?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.landrover.com"
+            },
+            {
+                id: 6,
+                brand: "Audi",
+                model: "RS e-tron GT",
+                category: "electrico",
+                price: "$147,100",
+                hp: "637 HP",
+                accel: "3.1s",
+                image: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=800&auto=format&fit=crop",
+                link: "https://www.audi.com"
+            }
+        ];
 
-    // Datos de ejemplo de vehículos
-    const vehicles = [
-      {
-        id: 1,
-        marca: "Toyota",
-        modelo: "Corolla",
-        anio: 2020,
-        tipo: "Sedán",
-        precio: 12500,
-        kilometraje: 52000,
-        ubicacion: "Ciudad de Panamá",
-        transmision: "Automático",
-        combustible: "Gasolina",
-        etiqueta: "Nuevo ingreso",
-        foto: "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=800"
-      },
-      {
-        id: 2,
-        marca: "Hyundai",
-        modelo: "Tucson",
-        anio: 2019,
-        tipo: "SUV",
-        precio: 16900,
-        kilometraje: 31000,
-        ubicacion: "San Miguelito",
-        transmision: "Automático",
-        combustible: "Gasolina",
-        etiqueta: "Garantía agencia",
-        foto: "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=800"
-      },
-      {
-        id: 3,
-        marca: "Kia",
-        modelo: "Rio",
-        anio: 2018,
-        tipo: "Sedán",
-        precio: 9800,
-        kilometraje: 68000,
-        ubicacion: "La Chorrera",
-        transmision: "Manual",
-        combustible: "Gasolina",
-        etiqueta: "Único dueño",
-        foto: "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=800"
-      },
-      {
-        id: 4,
-        marca: "Nissan",
-        modelo: "Frontier",
-        anio: 2017,
-        tipo: "Pickup",
-        precio: 18900,
-        kilometraje: 78000,
-        ubicacion: "David",
-        transmision: "Manual",
-        combustible: "Diésel",
-        etiqueta: "Ideal trabajo",
-        foto: "https://images.pexels.com/photos/1208854/pexels-photo-1208854.jpeg?auto=compress&cs=tinysrgb&w=800"
-      },
-      {
-        id: 5,
-        marca: "Mazda",
-        modelo: "CX-5",
-        anio: 2022,
-        tipo: "SUV",
-        precio: 28900,
-        kilometraje: 19000,
-        ubicacion: "Ciudad de Panamá",
-        transmision: "Automático",
-        combustible: "Gasolina",
-        etiqueta: "Como nuevo",
-        foto: "https://images.pexels.com/photos/21270/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800"
-      },
-      {
-        id: 6,
-        marca: "Volkswagen",
-        modelo: "Golf",
-        anio: 2017,
-        tipo: "Hatchback",
-        precio: 11800,
-        kilometraje: 87000,
-        ubicacion: "Colón",
-        transmision: "Automático",
-        combustible: "Gasolina",
-        etiqueta: "Precio rebajado",
-        foto: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=800"
-      }
-    ];
+        // --- FUNCION RENDERIZAR CARROS ---
+        const container = document.getElementById('carContainer');
 
-    const vehicleList = document.getElementById("vehicleList");
-    const searchText = document.getElementById("searchText");
-    const filterTipo = document.getElementById("filterTipo");
-    const filterAnio = document.getElementById("filterAnio");
-    const filterPrecio = document.getElementById("filterPrecio");
-    const btnAplicar = document.getElementById("btnAplicar");
-    const btnLimpiar = document.getElementById("btnLimpiar");
-    const countVisible = document.getElementById("countVisible");
+        function renderCars(filter) {
+            container.innerHTML = ''; // Limpiar
+            
+            const filteredCars = filter === 'all' 
+                ? cars 
+                : cars.filter(car => car.category === filter);
 
-    function renderVehicles(list) {
-      vehicleList.innerHTML = "";
-      list.forEach((v) => {
-        const card = document.createElement("article");
-        card.className = "vehicle-card";
-        card.dataset.id = v.id;
+            filteredCars.forEach(car => {
+                const card = `
+                    <div class="car-card">
+                        <div class="card-img-container">
+                            <span class="badge">${car.category}</span>
+                            <img src="${car.image}" alt="${car.brand} ${car.model}">
+                        </div>
+                        <div class="card-content">
+                            <span class="car-brand">${car.brand}</span>
+                            <h3 class="car-title">${car.model}</h3>
+                            
+                            <div class="specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>${car.accel}</span>
+                                    <small>0-100 km/h</small>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-horse"></i>
+                                    <span>${car.hp}</span>
+                                    <small>Potencia</small>
+                                </div>
+                            </div>
 
-        card.innerHTML = `
-          <div class="vehicle-image" style="background-image:url('${v.foto}');">
-            <div class="vehicle-badge">${v.etiqueta}</div>
-          </div>
-          <div class="vehicle-body">
-            <div class="vehicle-title-row">
-              <h3 class="vehicle-title">${v.marca} ${v.modelo} ${v.anio}</h3>
-              <div class="vehicle-price">$${v.precio.toLocaleString()}</div>
-            </div>
-            <div class="vehicle-meta">
-              ${v.kilometraje.toLocaleString()} km · ${v.transmision} · ${v.combustible}
-            </div>
-            <div class="vehicle-tags">
-              <span class="vehicle-tag">${v.tipo}</span>
-              <span class="vehicle-tag">Ejemplo de publicación</span>
-            </div>
-          </div>
-          <div class="vehicle-footer">
-            <div class="vehicle-location">
-              <span>📍</span> ${v.ubicacion}
-            </div>
-            <button class="btn btn-primary vehicle-cta" type="button">
-              Ver detalles
-            </button>
-          </div>
-        `;
+                            <div class="price-row">
+                                <span class="price">Desde ${car.price}</span>
+                                <a href="${car.link}" target="_blank" class="cta-btn">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
 
-        const btn = card.querySelector(".vehicle-cta");
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          openModal(v);
+        // --- MANEJAR FILTROS ---
+        function filterSelection(category) {
+            // Actualizar botones visualmente
+            const buttons = document.getElementsByClassName('filter-btn');
+            for (let btn of buttons) {
+                btn.classList.remove('active');
+            }
+            // Event.target workaround simple para este ejemplo
+            event.target.classList.add('active');
+            
+            // Renderizar
+            renderCars(category);
+        }
+
+        // --- INICIALIZAR ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCars('all');
         });
 
-        card.addEventListener("click", () => openModal(v));
-
-        vehicleList.appendChild(card);
-      });
-      countVisible.textContent = list.length;
-    }
-
-    function applyFilters() {
-      const text = searchText.value.trim().toLowerCase();
-      const tipo = filterTipo.value;
-      const anioMin = filterAnio.value ? parseInt(filterAnio.value, 10) : null;
-      const precioMax = filterPrecio.value ? parseFloat(filterPrecio.value) : null;
-
-      const filtered = vehicles.filter((v) => {
-        let ok = true;
-
-        if (text) {
-          const full = `${v.marca} ${v.modelo}`.toLowerCase();
-          ok = ok && full.includes(text);
-        }
-        if (tipo) {
-          ok = ok && v.tipo === tipo;
-        }
-        if (anioMin !== null) {
-          ok = ok && v.anio >= anioMin;
-        }
-        if (precioMax !== null && !Number.isNaN(precioMax)) {
-          ok = ok && v.precio <= precioMax;
-        }
-        return ok;
-      });
-
-      renderVehicles(filtered);
-    }
-
-    function clearFilters() {
-      searchText.value = "";
-      filterTipo.value = "";
-      filterAnio.value = "";
-      filterPrecio.value = "";
-      renderVehicles(vehicles);
-    }
-
-    btnAplicar.addEventListener("click", applyFilters);
-    btnLimpiar.addEventListener("click", clearFilters);
-    searchText.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        applyFilters();
-      }
-    });
-
-    // Modal
-    const modal = document.getElementById("vehicleModal");
-    const modalImage = document.getElementById("modalImage");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalMeta = document.getElementById("modalMeta");
-    const modalSpecs = document.getElementById("modalSpecs");
-    const modalLocation = document.getElementById("modalLocation");
-
-    function openModal(v) {
-      modalImage.style.backgroundImage = `url('${v.foto}')`;
-      modalTitle.textContent = `${v.marca} ${v.modelo} ${v.anio}`;
-      modalMeta.textContent = `${v.kilometraje.toLocaleString()} km · ${v.transmision} · ${v.combustible}`;
-      modalSpecs.textContent = `Este es un ejemplo de ficha de auto usado dentro de Autospm. Cuando publiques vehículos reales, aquí podrás mostrar más detalles como número de dueños, revisado, extras y estado general.`;
-      modalLocation.textContent = `Ubicación aproximada: ${v.ubicacion}.`;
-      modal.style.display = "block";
-    }
-
-    function closeModal() {
-      modal.style.display = "none";
-    }
-
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    // Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".hero-slider .slide");
-    const dots = document.querySelectorAll(".dot");
-
-    function showSlide(n) {
-      slides.forEach((s, i) => {
-        s.classList.remove("active", "prev");
-        if (i === n) s.classList.add("active");
-        if (i === (n - 1 + slides.length) % slides.length) s.classList.add("prev");
-      });
-      dots.forEach((d, i) => d.classList.toggle("active", i === n));
-      currentSlide = n;
-    }
-
-    function goToSlide(n) {
-      showSlide(n);
-    }
-
-    setInterval(() => {
-      showSlide((currentSlide + 1) % slides.length);
-    }, 6000);
-    showSlide(0);
-
-    // Inicializar vehículos
-    renderVehicles(vehicles);
-  </script>
+    </script>
 </body>
 </html>
