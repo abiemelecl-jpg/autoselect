@@ -3,374 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía premium de vehículos de lujo. Encuentra sitios oficiales de venta.">
-    <title>AUTOSPM | Luxury Car Guide</title>
+    <title>AutoSPM | La Colección Premium</title>
+    <meta name="description" content="Descubre los vehículos más exclusivos del mundo. AutoSPM te conecta directamente con los fabricantes oficiales.">
     
-    <!-- Tipografía Premium -->
+    <!-- Fuentes Google Fonts Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- TU CÓDIGO DE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
+     crossorigin="anonymous"></script>
 
     <style>
-        /* --- 1. CONFIGURACIÓN VISUAL (ESTILO PREMIUM) --- */
+        /* --- ESTILOS GENERALES (PREMIUM DARK THEME) --- */
         :root {
-            --bg-main: #050505;
-            --bg-card: #121212;
-            --text-white: #ffffff;
-            --text-gray: #a1a1a1;
-            --gold: #d4af37; /* Color Oro Premium */
-            --gold-dim: #8a701e;
-            --border: rgba(255, 255, 255, 0.08);
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-color: #f0f0f0;
+            --accent-color: #d4af37; /* Oro Premium */
+            --accent-hover: #b4942b;
+            --text-secondary: #a0a0a0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-white);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 60px; /* Espacio para banner cookies */
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
-        /* --- 2. HEADER --- */
+        /* --- HEADER --- */
         header {
-            position: fixed;
-            top: 0; width: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
             padding: 20px 5%;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
-        .logo span { color: var(--gold); }
-
-        .nav-menu a {
-            margin-left: 25px;
-            font-size: 0.85rem;
-            color: var(--text-gray);
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
         }
-        .nav-menu a:hover, .nav-menu a.active { color: var(--gold); }
 
-        /* --- 3. VISTAS (SPA LOGIC) --- */
-        .view-section { display: none; padding-top: 80px; animation: fadeIn 0.5s ease; }
-        .view-section.active-view { display: block; }
+        .logo span { color: #fff; }
 
-        /* --- 4. HERO SECTION (HOME) --- */
+        nav ul { display: flex; gap: 30px; }
+        nav a { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); }
+        nav a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
         .hero {
-            height: 70vh;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503376763036-066120622c74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(30,30,30,0.4) 0%, rgba(5,5,5,1) 100%), 
-                        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .btn-main {
+            padding: 15px 40px;
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-main:hover { background-color: var(--accent-hover); color: #fff; }
+
+        /* --- ESPACIOS DE PUBLICIDAD (ADSENSE) --- */
+        .ad-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            min-height: 100px;
+            background-color: #111; /* Color de fondo mientras carga el anuncio */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 12px;
+            border: 1px dashed #333;
+        }
+
+        /* --- CATALOGO DE COCHES --- */
+        .catalog {
+            max-width: 1200px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; font-weight: 300; margin-bottom: 15px; }
-        .hero h1 b { font-weight: 700; color: var(--text-white); }
-        .hero p { color: var(--text-gray); max-width: 600px; margin-bottom: 30px; font-size: 1.1rem; }
-        
-        .gold-btn {
-            padding: 12px 30px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: 0.3s;
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
         }
-        .gold-btn:hover { background: var(--gold); color: #000; }
 
-        /* --- 5. SHOWROOM (CATALOGO) --- */
-        .catalog { padding: 50px 5%; }
-        
-        .filters { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
-        .filter-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-gray);
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.8rem;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-size: 1rem;
         }
-        .filter-btn:hover, .filter-btn.active-filter { border-color: var(--gold); color: var(--gold); }
 
-        .grid {
+        .car-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        .car-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
             border-radius: 4px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
 
-        .card-img { height: 200px; overflow: hidden; position: relative; }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .card:hover .card-img img { transform: scale(1.05); }
-        
-        .card-info { padding: 20px; }
-        .brand-tag { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
-        .model-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; }
-        
-        .specs { display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 15px; margin-bottom: 15px; }
-        .spec { font-size: 0.85rem; color: var(--text-gray); text-align: center; }
-        .spec b { display: block; color: var(--text-white); margin-bottom: 2px; }
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: var(--accent-color);
+        }
 
-        .official-link {
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #222;
+        }
+
+        .car-info {
+            padding: 25px;
+        }
+
+        .car-brand {
+            font-size: 12px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .car-model {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .car-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            height: 60px; /* Altura fija para alineación */
+            overflow: hidden;
+        }
+
+        .btn-car {
             display: block;
             width: 100%;
+            padding: 12px;
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
             text-align: center;
-            background: #fff;
-            color: #000;
-            padding: 10px;
-            font-size: 0.8rem;
-            font-weight: 700;
             text-transform: uppercase;
-        }
-        .official-link:hover { background: var(--gold); }
-
-        /* --- 6. SECCIÓN LEGAL (VISIBLE CON JS) --- */
-        .legal-container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .legal-content h1 { color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .legal-content h2 { color: #fff; margin-top: 30px; font-size: 1.2rem; }
-        .legal-content p, .legal-content li { color: var(--text-gray); line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px; }
-        .legal-content ul { margin-left: 20px; list-style: disc; color: var(--text-gray); }
-
-        /* --- 7. FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 5%;
-            text-align: center;
-            background: #080808;
-            margin-top: 50px;
-        }
-        .footer-links { margin: 20px 0; }
-        .footer-links span {
-            color: var(--text-gray);
-            font-size: 0.8rem;
-            margin: 0 10px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
             cursor: pointer;
-            text-decoration: underline;
         }
-        .footer-links span:hover { color: var(--gold); }
-        .disclaimer { font-size: 0.7rem; color: #444; max-width: 700px; margin: 0 auto; }
 
-        /* --- 8. COOKIE BANNER --- */
-        #cookie-banner {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: #1a1a1a; border-top: 1px solid var(--gold);
+        .btn-car:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            padding: 60px 20px;
+            margin-top: 80px;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            margin: 0 15px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-links button:hover { color: var(--accent-color); }
+
+        .copyright { font-size: 12px; color: #555; }
+
+        /* --- MODALES (PRIVACIDAD) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
             padding: 20px;
-            display: flex; justify-content: center; align-items: center; gap: 20px;
-            z-index: 9999;
-            transform: translateY(100%); transition: transform 0.4s ease;
-        }
-        #cookie-banner p { font-size: 0.85rem; color: #ccc; }
-        #cookie-banner button {
-            background: var(--gold); border: none; padding: 8px 25px;
-            color: #000; font-weight: 700; cursor: pointer;
+            align-items: center;
+            justify-content: center;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--accent-color);
+            position: relative;
+        }
+
+        .modal h2 { color: var(--accent-color); margin-bottom: 20px; }
+        .modal p { font-size: 14px; color: #ccc; margin-bottom: 15px; }
         
-        @media(max-width: 768px) {
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* --- COOKIES BANNER --- */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            border-top: 2px solid var(--accent-color);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 9999;
+            flex-wrap: wrap;
+        }
+
+        #cookie-banner p { font-size: 13px; color: #ccc; }
+        
+        .btn-accept {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            border: none;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-menu { display: none; } /* Simplificado para móvil */
-            #cookie-banner { flex-direction: column; text-align: center; }
+            nav { display: none; } /* Menú simplificado para móvil */
+            .logo { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
-        <div class="logo" onclick="switchView('home')">AUTOS<span>PM</span></div>
-        <nav class="nav-menu">
-            <a onclick="switchView('home')" class="active">Showroom</a>
-            <a onclick="switchView('legal')">Privacidad</a>
-            <a onclick="switchView('legal')">Contacto</a>
+        <div class="logo">Auto<span>SPM</span></div>
+        <nav>
+            <ul>
+                <li><a href="#catalogo">Colección</a></li>
+                <li><button onclick="openModal('privacy')" style="background:none; border:none; color:#a0a0a0; font-family:inherit; text-transform: uppercase; cursor:pointer; font-size:14px; letter-spacing:1px;">Privacidad</button></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- === VISTA PRINCIPAL (HOME) === -->
-    <main id="view-home" class="view-section active-view">
-        <section class="hero">
-            <h1>ELITE <br><b>PERFORMANCE</b></h1>
-            <p>Curaduría exclusiva de los mejores automóviles del mundo. <br>Te conectamos directamente con los distribuidores oficiales.</p>
-            <button class="gold-btn" onclick="document.getElementById('showroom').scrollIntoView({behavior:'smooth'})">Ver Colección</button>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Excelencia en Movimiento</h1>
+        <p>Explora la selección más refinada de vehículos de lujo y deportivos. Conéctate directamente con los fabricantes oficiales.</p>
+        <a href="#catalogo" class="btn-main">Ver Colección</a>
+    </section>
 
-        <section id="showroom" class="catalog">
-            <div class="filters">
-                <button class="filter-btn active-filter" onclick="filterCars('all', this)">Todos</button>
-                <button class="filter-btn" onclick="filterCars('deportivo', this)">Supercars</button>
-                <button class="filter-btn" onclick="filterCars('suv', this)">SUV Lujo</button>
-                <button class="filter-btn" onclick="filterCars('electrico', this)">Eléctricos</button>
-            </div>
-            <div class="grid" id="car-grid">
-                <!-- Se llena con JS -->
-            </div>
-        </section>
-    </main>
-
-    <!-- === VISTA LEGAL (PRIVACIDAD Y POLÍTICAS) === -->
-    <div id="view-legal" class="view-section">
-        <div class="legal-container">
-            <div class="legal-content">
-                <button class="gold-btn" style="margin-bottom:20px; padding: 8px 20px;" onclick="switchView('home')">← Volver al Showroom</button>
-                
-                <h1>Políticas y Privacidad</h1>
-                <p>Última actualización: 2024. Cumplimiento con normativas internacionales y Google AdSense.</p>
-
-                <h2>1. Política de Privacidad</h2>
-                <p>En AUTOSPM, su privacidad es nuestra prioridad. Esta política detalla cómo manejamos la información:</p>
-                <ul>
-                    <li><strong>Datos recopilados:</strong> No solicitamos registro de usuarios. Solo recopilamos datos técnicos anónimos (cookies) para estadísticas y visualización de anuncios.</li>
-                    <li><strong>Uso de la información:</strong> Los datos se usan exclusivamente para mejorar la experiencia de navegación y mostrar publicidad relevante.</li>
-                </ul>
-
-                <h2>2. Cookies y Publicidad (Google AdSense)</h2>
-                <p>Este sitio web utiliza cookies propias y de terceros (Google) para:</p>
-                <ul>
-                    <li>Analizar el tráfico del sitio web.</li>
-                    <li>Personalizar el contenido y los anuncios mostrados.</li>
-                </ul>
-                <p>Google, como proveedor asociado, utiliza cookies para publicar anuncios en este sitio. Los usuarios pueden inhabilitar el uso de la cookie de DART a través del anuncio de Google y la política de privacidad de la red de contenido.</p>
-
-                <h2>3. Descargo de Responsabilidad (Disclaimer)</h2>
-                <p><strong>AUTOSPM NO ES UN CONCESIONARIO NI VENDE VEHÍCULOS.</strong></p>
-                <p>Somos un medio digital informativo. Nuestra función es presentar fichas técnicas y redirigir al usuario ("Lead") a los sitios web oficiales de las marcas (Ferrari, Porsche, Tesla, etc.).</p>
-                <p>No garantizamos la disponibilidad ni el precio exacto de los vehículos, ya que estos dependen exclusivamente del fabricante.</p>
-
-                <h2>4. Contacto</h2>
-                <p>Para consultas sobre publicidad, derechos de autor o correcciones de contenido, por favor contáctenos en:</p>
-                <p><strong>Email:</strong> info@autospm.com</p>
-            </div>
-        </div>
+    <!-- AdSense Space 1 -->
+    <div class="ad-container">
+        <!-- Google AdSense Unit -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4027729234815917"
+             data-ad-slot="1234567890" 
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <span style="position: absolute; pointer-events: none;">Espacio Publicitario</span>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="logo" style="margin-bottom:15px; font-size:1.2rem;">AUTOS<span>PM</span></div>
-        <div class="footer-links">
-            <span onclick="switchView('legal')">Política de Privacidad</span>
-            <span onclick="switchView('legal')">Cookies</span>
-            <span onclick="switchView('legal')">Términos de Uso</span>
-            <span onclick="switchView('legal')">Sobre Nosotros</span>
+    <!-- Catálogo de Coches -->
+    <section id="catalogo" class="catalog">
+        <h2 class="section-title">Nuestra Selección</h2>
+        <p class="section-subtitle">Toca cualquier modelo para visitar el sitio oficial del fabricante.</p>
+        
+        <div class="car-grid" id="carGrid">
+            <!-- Los coches se generan con JavaScript para que sea más limpio -->
         </div>
-        <p class="disclaimer">© 2024 AUTOSPM. Todas las marcas registradas pertenecen a sus respectivos dueños.</p>
+    </section>
+
+    <!-- AdSense Space 2 -->
+    <div class="ad-container">
+        <!-- Google AdSense Unit -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4027729234815917"
+             data-ad-slot="0987654321" 
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <span style="position: absolute; pointer-events: none;">Espacio Publicitario</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">AutoSPM</div>
+        <div class="footer-links">
+            <button onclick="openModal('privacy')">Política de Privacidad</button>
+            <button onclick="openModal('terms')">Términos de Uso</button>
+            <button onclick="openModal('cookies')">Política de Cookies</button>
+        </div>
+        <p class="copyright">&copy; 2023-2024 AutoSPM. Todos los derechos reservados.</p>
+        <p style="font-size: 10px; color: #333; margin-top: 10px;">Este sitio no vende vehículos directamente. Funciona como un catálogo de referencia hacia sitios oficiales.</p>
     </footer>
 
-    <!-- BANNER COOKIES -->
+    <!-- Banner Cookies -->
     <div id="cookie-banner">
-        <p>Usamos cookies para personalizar su experiencia y mostrar anuncios relevantes según nuestras políticas.</p>
-        <button onclick="acceptCookies()">ACEPTAR</button>
+        <p>Utilizamos cookies para mejorar tu experiencia y mostrar anuncios relevantes. Al continuar navegando, aceptas nuestra política.</p>
+        <button class="btn-accept" onclick="acceptCookies()">Aceptar</button>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- Modal Template -->
+    <div id="modalOverlay" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
     <script>
-        // --- 1. DATOS DE LOS CARROS ---
+        // --- DATOS DE LOS COCHES ---
+        // Aquí puedes agregar o quitar coches. Las URLs son de las webs oficiales globales.
         const cars = [
-            { id: 1, brand: "Ferrari", model: "296 GTB", cat: "deportivo", price: "$342,200", hp: "819 HP", img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=800", link: "https://www.ferrari.com" },
-            { id: 2, brand: "Lamborghini", model: "Revuelto", cat: "deportivo", price: "$608,358", hp: "1001 HP", img: "https://images.unsplash.com/photo-1544614471-5eba71151c74?q=80&w=800", link: "https://www.lamborghini.com" },
-            { id: 3, brand: "Porsche", model: "911 GT3 RS", cat: "deportivo", price: "$241,300", hp: "518 HP", img: "https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=800", link: "https://www.porsche.com" },
-            { id: 4, brand: "Tesla", model: "Model S Plaid", cat: "electrico", price: "$89,990", hp: "1020 HP", img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=800", link: "https://www.tesla.com" },
-            { id: 5, brand: "Range Rover", model: "SV Autobiography", cat: "suv", price: "$234,000", hp: "606 HP", img: "https://images.unsplash.com/photo-1606220838315-056192d5e927?q=80&w=800", link: "https://www.landrover.com" },
-            { id: 6, brand: "Mercedes-AMG", model: "G 63", cat: "suv", price: "$183,000", hp: "577 HP", img: "https://images.unsplash.com/photo-1520031441872-dd59964347bb?q=80&w=800", link: "https://www.mercedes-benz.com" },
-            { id: 7, brand: "Rimac", model: "Nevera", cat: "electrico", price: "$2,200,000", hp: "1914 HP", img: "https://images.unsplash.com/photo-1611859328053-3720922c2f00?q=80&w=800", link: "https://www.rimac-automobili.com" },
-            { id: 8, brand: "Aston Martin", model: "DB12", cat: "deportivo", price: "$245,000", hp: "671 HP", img: "https://images.unsplash.com/photo-1605517141536-159518063a58?q=80&w=800", link: "https://www.astonmartin.com" }
+            {
+                brand: "Porsche",
+                model: "911 GT3 RS",
+                desc: "Rendimiento puro de carreras adaptado para la carretera. Aerodinámica extrema.",
+                img: "https://images.unsplash.com/photo-1503376763036-066120622c74?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.porsche.com/international/models/911/911-gt3-rs/911-gt3-rs/"
+            },
+            {
+                brand: "Tesla",
+                model: "Model S Plaid",
+                desc: "El coche de producción con la aceleración más rápida. Futuro eléctrico.",
+                img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.tesla.com/models"
+            },
+            {
+                brand: "Mercedes-Benz",
+                model: "AMG GT",
+                desc: "Un Gran Turismo en su forma más pura. Potencia alemana y elegancia.",
+                img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.mercedes-amg.com/en/vehicles/gt/coupe.html"
+            },
+            {
+                brand: "Ferrari",
+                model: "F8 Tributo",
+                desc: "Homenaje al motor V8 más potente de la historia de Ferrari.",
+                img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.ferrari.com/en-EN/auto/f8-tributo"
+            },
+            {
+                brand: "BMW",
+                model: "M4 Competition",
+                desc: "Diseño audaz y dinámica de conducción superior. La máquina de conducción definitiva.",
+                img: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.bmw.com/en/all-models/m-series/m4-coupe/2020/bmw-4-series-coupe-m-automobiles-overview.html"
+            },
+            {
+                brand: "Lamborghini",
+                model: "Huracán EVO",
+                desc: "La evolución del V10 más exitoso. Tecnología y emoción italiana.",
+                img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                link: "https://www.lamborghini.com/en-en/models/huracan/huracan-evo"
+            }
         ];
 
-        // --- 2. RENDERIZAR CARROS ---
-        const grid = document.getElementById('car-grid');
+        // --- RENDERIZAR COCHES ---
+        const carGrid = document.getElementById('carGrid');
 
-        function render(filter) {
-            grid.innerHTML = '';
-            const filtered = filter === 'all' ? cars : cars.filter(c => c.cat === filter);
-            
-            filtered.forEach(car => {
-                grid.innerHTML += `
-                <div class="card">
-                    <div class="card-img">
-                        <img src="${car.img}" alt="${car.brand} ${car.model}" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <span class="brand-tag">${car.brand}</span>
-                        <h3 class="model-title">${car.model}</h3>
-                        <div class="specs">
-                            <span class="spec">Potencia<b>${car.hp}</b></span>
-                            <span class="spec">Precio Base<b>${car.price}</b></span>
-                        </div>
-                        <a href="${car.link}" target="_blank" rel="nofollow" class="official-link">Sitio Oficial <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>`;
-            });
-        }
-
-        // --- 3. FILTROS ---
-        function filterCars(cat, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
-            btn.classList.add('active-filter');
-            render(cat);
-        }
-
-        // --- 4. SISTEMA DE VISTAS (SPA) ---
-        function switchView(viewName) {
-            // Ocultar todas las secciones
-            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active-view'));
-            
-            // Mostrar la deseada
-            document.getElementById(`view-${viewName}`).classList.add('active-view');
-            
-            // Scroll arriba
-            window.scrollTo(0, 0);
-        }
-
-        // --- 5. LOGICA COOKIES ---
-        function acceptCookies() {
-            localStorage.setItem('autospm_cookies', 'true');
-            document.getElementById('cookie-banner').style.transform = 'translateY(100%)';
-        }
-
-        // --- INICIALIZACIÓN ---
-        window.addEventListener('load', () => {
-            render('all'); // Cargar autos
-            
-            // Chequear si ya aceptó cookies
-            if (!localStorage.getItem('autospm_cookies')) {
-                setTimeout(() => {
-                    document.getElementById('cookie-banner').style.transform = 'translateY(0)';
-                }, 1500);
-            }
+        cars.forEach(car => {
+            const card = document.createElement('div');
+            card.className = 'car-card';
+            card.innerHTML = `
+                <img src="${car.img}" alt="${car.brand} ${car.model}" class="car-image">
+                <div class="car-info">
+                    <span class="car-brand">${car.brand}</span>
+                    <h3 class="car-model">${car.model}</h3>
+                    <p class="car-desc">${car.desc}</p>
+                    <a href="${car.link}" target="_blank" rel="noopener noreferrer" class="btn-car">
+                        Ver Sitio Oficial <i class="fas fa-external-link-alt" style="margin-left:5px;"></i>
+                    </a>
+                </div>
+            `;
+            carGrid.appendChild(card);
         });
+
+        // --- GESTIÓN DE COOKIES ---
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        // Verificar si ya aceptó cookies
+        if(localStorage.getItem('cookiesAccepted') === 'true') {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        // --- GESTIÓN DE MODALES (LEGAL) ---
+        const modal = document.getElementById('modalOverlay');
+        const modalBody = document.getElementById('modalBody');
+
+        const legalTexts = {
+            privacy: `<h2>Política de Privacidad</h2>
+                      <p>En AutoSPM, valoramos su privacidad. Esta política describe cómo manejamos la información cuando visita nuestro sitio web.</p>
+                      <h3>Recopilación de Datos</h3>
+                      <p>Utilizamos cookies y tecnologías similares para analizar el tráfico y mostrar publicidad personalizada a través de Google AdSense. No recopilamos datos personales directos (como nombres o correos) a menos que usted nos contacte.</p>
+                      <h3>Enlaces Externos</h3>
+                      <p>Este sitio web contiene enlaces a sitios web de terceros (fabricantes de automóviles). No somos responsables de las prácticas de privacidad ni del contenido de esos sitios.</p>`,
+            
+            terms: `<h2>Términos de Uso</h2>
+                    <p>Bienvenido a AutoSPM. Al usar este sitio, acepta los siguientes términos.</p>
+                    <h3>Uso del Sitio</h3>
+                    <p>Este sitio es una galería de exhibición. AutoSPM no vende vehículos, piezas ni servicios directamente. Todos los botones de compra redirigen a los sitios web oficiales de las marcas.</p>
+                    <h3>Propiedad Intelectual</h3>
+                    <p>Las marcas comerciales y logotipos de los fabricantes mostrados pertenecen a sus respectivos dueños y se utilizan aquí solo con fines informativos y de referencia.</p>`,
+            
+            cookies: `<h2>Política de Cookies</h2>
+                      <p>Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación.</p>
+                      <p>Google, como proveedor asociado, utiliza cookies para publicar anuncios en este sitio. Los usuarios pueden inhabilitar el uso de la cookie de DART a través del anuncio de Google y la política de privacidad de la red de contenido.</p>`
+        };
+
+        function openModal(type) {
+            modalBody.innerHTML = legalTexts[type];
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Cerrar modal al hacer click fuera del contenido
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
