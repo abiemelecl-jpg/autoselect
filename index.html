@@ -2,587 +2,595 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía exclusiva de los mejores automóviles del mundo. Encuentra especificaciones reales y enlaces directos a concesionarios oficiales.">
-    <title>AutoPrestige | Guía Automotriz Premium</title>
-    
-    <!-- Google AdSense Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027729234815917"
-     crossorigin="anonymous"></script>
+    <title>Blog de autos - Noticias, reseñas y consejos automotrices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog de autos con noticias, reseñas de vehículos y consejos automotrices para conductores y amantes del motor.">
+    <meta name="author" content="autospm.autos">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
+    <!-- Estilos básicos. Puedes moverlos a un .css si quieres -->
     <style>
-        /* --- VARIABLES & RESET --- */
         :root {
-            --primary: #d4af37; /* Dorado Premium */
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #f5f5f5;
-            --text-gray: #a0a0a0;
-            --accent: #ff4d4d;
+            --color-primario: #e63946;
+            --color-secundario: #1d3557;
+            --color-fondo: #f5f5f5;
+            --color-texto: #222222;
+            --color-blanco: #ffffff;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
             line-height: 1.6;
         }
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-        /* --- HEADER --- */
         header {
-            background: rgba(18, 18, 18, 0.95);
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
+            background: var(--color-secundario);
+            color: var(--color-blanco);
+            padding: 1rem 1.5rem;
+            position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #333;
-            backdrop-filter: blur(10px);
+            justify-content: space-between;
+            gap: 1rem;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         nav ul {
+            list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         nav a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
-        nav a:hover { color: var(--primary); }
+        nav a:hover {
+            background: var(--color-primario);
+        }
 
-        /* --- HERO SECTION --- */
+        /* Hero */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            background: linear-gradient(135deg, #0b1320, #1d3557);
+            color: var(--color-blanco);
+            padding: 2.5rem 0 2rem;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 2rem;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 60px;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin-bottom: 30px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            max-width: 36rem;
         }
 
-        .btn-main {
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: #000;
-            font-weight: 700;
-            border-radius: 2px;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .btn-main:hover {
-            transform: translateY(-3px);
-            background-color: #fff;
-        }
-
-        /* --- ADSENSE CONTAINER --- */
-        .ad-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 40px auto;
-            min-height: 100px;
-            background: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #444;
-            text-align: center;
-            border: 1px dashed #333;
-        }
-
-        /* --- CAR GRID --- */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary);
-        }
-
-        .car-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .car-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #333;
-        }
-
-        .car-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-color: var(--primary);
-        }
-
-        .car-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .car-info {
-            padding: 20px;
-        }
-
-        .car-tag {
-            background: #333;
-            color: var(--text-gray);
-            padding: 4px 8px;
-            font-size: 0.7rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+        .hero-badge {
             display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
         }
 
-        .car-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .car-specs {
+        .hero-cta {
+            margin-top: 1rem;
             display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-            padding: 10px 0;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .spec-item i {
-            color: var(--primary);
-            margin-right: 5px;
+        .btn {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.65rem 1.3rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .car-price {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
+        .btn-primario {
+            background: var(--color-primario);
+            color: var(--color-blanco);
         }
 
-        .btn-referral {
-            display: block;
-            width: 100%;
-            text-align: center;
+        .btn-secundario {
             background: transparent;
-            border: 1px solid var(--text-light);
-            color: var(--text-light);
-            padding: 10px;
-            transition: all 0.3s;
+            color: var(--color-blanco);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .btn-referral:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #000;
-        }
-
-        /* --- FOOTER & LEGAL --- */
-        footer {
-            background: #0a0a0a;
-            padding: 50px 20px;
-            margin-top: 80px;
-            border-top: 1px solid #333;
+        .hero-highlight {
+            background: rgba(0,0,0,0.25);
+            border-radius: 0.75rem;
+            padding: 1rem;
             font-size: 0.9rem;
-            color: var(--text-gray);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-highlight strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        main {
+            padding: 2rem 0 3rem;
+        }
+
+        .layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
+            gap: 2rem;
         }
 
-        .footer-col h4 {
-            color: #fff;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-secundario);
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Artículos / tarjetas */
+        .post-list {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        article {
+            background: var(--color-blanco);
+            border-radius: 0.75rem;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .post-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primario);
+            margin-bottom: 0.3rem;
+        }
+
+        .post-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .post-meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.4rem;
+        }
+
+        .post-excerpt {
+            font-size: 0.9rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .post-readmore {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-secundario);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .widget {
+            background: var(--color-blanco);
+            padding: 1rem 1.1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .widget h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            color: var(--color-secundario);
+        }
+
+        .widget ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .widget li + li {
+            margin-top: 0.35rem;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: #eee;
+            margin: 0.1rem;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 0.5rem 0.6rem;
+            border-radius: 0.5rem;
+            border: 1px solid #ccc;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        /* Sección contacto */
+        .contacto {
+            background: var(--color-blanco);
+            padding: 1.4rem 1.3rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .contacto p {
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        footer {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 1.5rem 0 2rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
         .footer-links a {
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s;
+            font-size: 0.85rem;
+            color: #cbd5f5;
         }
 
-        .footer-links a:hover { color: var(--primary); }
-
-        .disclaimer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            border-top: 1px solid #333;
-            padding-top: 20px;
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+            .layout {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* --- COOKIE BANNER --- */
-        #cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            border-top: 2px solid var(--primary);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 9999;
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-        }
-
-        #cookie-banner.show {
-            transform: translateY(0);
-        }
-
-        .cookie-text {
-            font-size: 0.9rem;
-            max-width: 80%;
-            color: #ccc;
-        }
-
-        .cookie-btn {
-            background: var(--primary);
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 20px;
-        }
-
-        /* --- MODAL (Privacy Policy) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        .modal-content {
-            background-color: #1e1e1e;
-            margin: 10% auto;
-            padding: 40px;
-            border: 1px solid #333;
-            width: 80%;
-            max-width: 800px;
-            color: #ddd;
-            border-radius: 5px;
-        }
-
-        .close-modal {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-modal:hover { color: #fff; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Simplified for mobile */
-            .cookie-text { font-size: 0.8rem; }
-            #cookie-banner { flex-direction: column; text-align: center; gap: 15px; }
+        @media (max-width: 600px) {
+            header {
+                padding: 0.75rem 1rem;
+            }
+            .hero {
+                padding: 2rem 0 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            nav ul {
+                justify-content: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
-<body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">AutoPrestige</div>
+<body>
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <!-- Cambia este texto por el nombre de tu marca si quieres -->
+            AUTOSPM AUTOS
+        </div>
         <nav>
             <ul>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#" onclick="openModal('privacy-modal')">Privacidad</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
+                <li><a href="#consejos">Consejos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <h1>La Excelencia Automotriz</h1>
-        <p>Tu guía definitiva para encontrar el vehículo perfecto. Analizamos los mejores modelos del mercado global para que tomes la mejor decisión.</p>
-        <a href="#catalogo" class="btn-main">Explorar Modelos</a>
-    </section>
-
-    <!-- AdSense Placeholder 1 (Top) -->
-    <div class="ad-container">
-        <p>Publicidad - Espacio optimizado para AdSense</p>
-        <!-- Pega aquí tu código de anuncio individual si deseas uno específico -->
     </div>
+</header>
 
-    <!-- Catálogo de Carros -->
-    <div class="container" id="catalogo">
-        <h2 class="section-title">Modelos Destacados 2024/25</h2>
-        
-        <div class="car-grid">
-            
-            <!-- Carro 1: Deportivo -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Porsche 911" class="car-img">
-                <div class="car-info">
-                    <span class="car-tag">Deportivo</span>
-                    <h3 class="car-title">Porsche 911 Carrera S</h3>
-                    <div class="car-specs">
-                        <span class="spec-item">443 HP</span>
-                        <span class="spec-item">0-100: 3.5s</span>
-                        <span class="spec-item">Gasolina</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;">Icono del diseño y la ingeniería alemana. Un equilibrio perfecto entre rendimiento en pista y uso diario.</p>
-                    <span class="car-price">Desde $130,000 USD</span>
-                    <a href="https://www.porsche.com" target="_blank" rel="nofollow noopener" class="btn-referral">Sitio Oficial Porsche</a>
-                </div>
-            </div>
-
-            <!-- Carro 2: SUV Familiar -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Volvo XC90" class="car-img">
-                <div class="car-info">
-                    <span class="car-tag">SUV Familiar</span>
-                    <h3 class="car-title">Volvo XC90 Recharge</h3>
-                    <div class="car-specs">
-                        <span class="spec-item">455 HP</span>
-                        <span class="spec-item">Híbrido</span>
-                        <span class="spec-item">7 Pasajeros</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;">Seguridad líder en su clase combinada con lujo escandinavo. Ideal para familias que buscan confort y eficiencia.</p>
-                    <span class="car-price">Desde $72,000 USD</span>
-                    <a href="https://www.volvocars.com" target="_blank" rel="nofollow noopener" class="btn-referral">Sitio Oficial Volvo</a>
-                </div>
-            </div>
-
-            <!-- Carro 3: Eléctrico -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tesla Model S" class="car-img">
-                <div class="car-info">
-                    <span class="car-tag">Eléctrico</span>
-                    <h3 class="car-title">Tesla Model S Plaid</h3>
-                    <div class="car-specs">
-                        <span class="spec-item">1,020 HP</span>
-                        <span class="spec-item">0-100: 1.99s</span>
-                        <span class="spec-item">600km Autonomía</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;">El sedán de producción más rápido. Tecnología de punta con piloto automático y un interior minimalista.</p>
-                    <span class="car-price">Desde $89,990 USD</span>
-                    <a href="https://www.tesla.com" target="_blank" rel="nofollow noopener" class="btn-referral">Sitio Oficial Tesla</a>
-                </div>
-            </div>
-
-            <!-- Carro 4: Sedán de Lujo -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Mercedes S-Class" class="car-img">
-                <div class="car-info">
-                    <span class="car-tag">Sedán de Lujo</span>
-                    <h3 class="car-title">Mercedes-Benz Clase S</h3>
-                    <div class="car-specs">
-                        <span class="spec-item">496 HP</span>
-                        <span class="spec-item">Biturbo V8</span>
-                        <span class="spec-item">Ejecutivo</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;">La definición de lujo moderno. Tecnología intuitiva, materiales de primera calidad y confort insuperable.</p>
-                    <span class="car-price">Desde $114,500 USD</span>
-                    <a href="https://www.mercedes-benz.com" target="_blank" rel="nofollow noopener" class="btn-referral">Sitio Oficial Mercedes</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- AdSense Placeholder 2 (Middle) -->
-    <div class="ad-container">
-        <p>Publicidad</p>
-    </div>
-
-    <!-- Sección de Información (SEO) -->
-    <div class="container" style="color: #ccc;">
-        <h2 style="color: var(--primary); margin-bottom: 20px;">¿Cómo Elegir tu Próximo Vehículo?</h2>
-        <p>En <strong>AutoPrestige</strong>, no vendemos autos, pero te ayudamos a comprarlos inteligentemente. Nuestra misión es filtrar la información del vasto mercado automotriz para presentarte solo las mejores opciones en cada categoría.</p>
-        <br>
-        <p>Analizamos factores clave como:</p>
-        <ul style="list-style: disc; margin-left: 20px; margin-top: 10px;">
-            <li><strong>Rendimiento y Motorización:</strong> Desde motores V8 tradicionales hasta las últimas innovaciones eléctricas.</li>
-            <li><strong>Seguridad:</strong> Evaluaciones de organismos internacionales para proteger a tu familia.</li>
-            <li><strong>Valor de Reventa:</strong> Qué marcas mantienen mejor su valor a lo largo del tiempo.</li>
-        </ul>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="footer-content">
-            <div class="footer-col">
-                <div class="logo">AutoPrestige</div>
-                <p style="margin-top: 10px;">Tu portal de confianza para el análisis y referencia de automóviles de alta gama.</p>
-            </div>
-            <div class="footer-col footer-links">
-                <h4>Enlaces Rápidos</h4>
-                <a href="#catalogo">Catálogo</a>
-                <a href="#" onclick="openModal('privacy-modal')">Política de Privacidad</a>
-                <a href="#" onclick="openModal('cookie-modal')">Política de Cookies</a>
-                <a href="#">Contacto</a>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <p>Este sitio es un portal informativo. No realizamos ventas directas de vehículos.</p>
+<section id="inicio" class="hero">
+    <div class="container hero-inner">
+        <div>
+            <div class="hero-badge">Blog de autos</div>
+            <h1>Noticias, reseñas y consejos automotrices para conductores reales</h1>
+            <p>
+                En <strong>autospm.autos</strong> encontrarás un blog de autos con
+                análisis claros, recomendaciones sinceras y tips prácticos para cuidar tu vehículo,
+                elegir tu próximo coche y mantenerte al día con el mundo del motor.
+            </p>
+            <div class="hero-cta">
+                <a href="#noticias" class="btn btn-primario">Ver últimas noticias</a>
+                <a href="#reseñas" class="btn btn-secundario">Ir a reseñas de autos</a>
             </div>
         </div>
-        <div class="disclaimer">
-            &copy; 2025 AutoPrestige. Todos los derechos reservados. Las marcas y logotipos mostrados son propiedad de sus respectivos dueños.
-        </div>
-    </footer>
-
-    <!-- Cookie Banner -->
-    <div id="cookie-banner">
-        <div class="cookie-text">
-            Utilizamos cookies propias y de terceros (incluyendo Google AdSense) para mejorar tu experiencia y mostrar publicidad personalizada. Al continuar navegando, aceptas nuestra <a href="#" onclick="openModal('cookie-modal')" style="color: var(--primary); text-decoration: underline;">Política de Cookies</a>.
-        </div>
-        <button class="cookie-btn" onclick="acceptCookies()">Aceptar</button>
-    </div>
-
-    <!-- Modal Política de Privacidad -->
-    <div id="privacy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacy-modal')">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 20px;">Política de Privacidad</h2>
-            <p><strong>Última actualización: Noviembre 2025</strong></p>
-            <br>
-            <p>En AutoPrestige, respetamos su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal.</p>
-            <br>
-            <h3>1. Publicidad de Google AdSense</h3>
-            <p>Este sitio web utiliza Google AdSense para mostrar anuncios. Google utiliza cookies para publicar anuncios basados en sus visitas anteriores a nuestro sitio web o a otros sitios web.</p>
-            <ul style="margin-left: 20px; list-style: disc;">
-                <li>El uso de cookies de publicidad por parte de Google le permite a él y a sus socios mostrar anuncios a sus usuarios basados en su visita a sus sitios y/o a otros sitios en Internet.</li>
-                <li>Los usuarios pueden inhabilitar la publicidad personalizada visitando la <a href="https://www.google.com/settings/ads" target="_blank" style="color: var(--primary);">Configuración de anuncios</a>.</li>
-            </ul>
-            <br>
-            <h3>2. Recopilación de Datos</h3>
-            <p>No recopilamos información personal identificable (como nombre o correo electrónico) a menos que usted nos la proporcione voluntariamente a través de formularios de contacto. Recopilamos datos no personales a través de cookies para análisis de tráfico.</p>
-            <br>
-            <h3>3. Enlaces a Terceros</h3>
-            <p>Nuestro sitio contiene enlaces a otros sitios web (como concesionarios oficiales). No somos responsables de las prácticas de privacidad de dichos sitios.</p>
-        </div>
-    </div>
-
-    <!-- Modal Política de Cookies -->
-    <div id="cookie-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('cookie-modal')">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 20px;">Política de Cookies</h2>
-            <p>Una cookie es un pequeño archivo de texto que se almacena en su navegador cuando visita casi cualquier página web. Su utilidad es que la web sea capaz de recordar su visita cuando vuelva a navegar por esa página.</p>
-            <br>
-            <h3>Cookies utilizadas en este sitio web</h3>
-            <p>Siguiendo las directrices de la Agencia de Protección de Datos detallamos el uso de cookies que hace esta web:</p>
-            <ul style="margin-left: 20px; list-style: disc; margin-top: 10px;">
-                <li><strong>Cookies técnicas:</strong> Son aquellas que permiten al usuario la navegación a través de una página web y la utilización de las diferentes opciones o servicios que en ella existan.</li>
-                <li><strong>Cookies publicitarias (Google AdSense):</strong> Son aquellas que permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios.</li>
+        <div class="hero-highlight">
+            <strong>¿Qué encontrarás aquí?</strong>
+            <ul>
+                <li>▶ Resúmenes de las noticias más importantes del sector automotriz.</li>
+                <li>▶ Reseñas honestas de autos nuevos y usados.</li>
+                <li>▶ Consejos de mantenimiento para alargar la vida de tu vehículo.</li>
             </ul>
         </div>
     </div>
+</section>
 
-    <script>
-        // --- FUNCIONALIDAD COOKIES ---
-        function acceptCookies() {
-            document.getElementById('cookie-banner').classList.remove('show');
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
+<main class="container">
+    <div class="layout">
+        <!-- CONTENIDO PRINCIPAL -->
+        <div>
+            <!-- Noticias -->
+            <section id="noticias">
+                <h2>Noticias de autos</h2>
+                <p class="section-subtitle">Actualidad del mundo automotriz, lanzamientos y tendencias.</p>
+                <div class="post-list">
+                    <!-- NOTICIA 1 -->
+                    <article>
+                        <div class="post-category">Noticias</div>
+                        <a href="#">
+                            <h3 class="post-title">Las nuevas tendencias en autos híbridos y eléctricos en 2025</h3>
+                        </a>
+                        <div class="post-meta">Publicado el 10 de diciembre de 2025 · 5 min de lectura</div>
+                        <p class="post-excerpt">
+                            Los fabricantes están apostando por motores más eficientes, mejores autonomías
+                            y sistemas de carga rápida. Te contamos qué marcas están liderando el cambio y qué
+                            debes tener en cuenta si piensas dar el salto a un auto electrificado.
+                        </p>
+                        <a class="post-readmore" href="#">Leer noticia completa →</a>
+                    </article>
 
-        // Mostrar banner si no se ha aceptado
-        window.onload = function() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(function() {
-                    document.getElementById('cookie-banner').classList.add('show');
-                }, 1000);
-            }
-        }
+                    <!-- NOTICIA 2 -->
+                    <article>
+                        <div class="post-category">Noticias</div>
+                        <a href="#">
+                            <h3 class="post-title">Sistemas de asistencia al conductor: qué traen ahora los modelos de entrada</h3>
+                        </a>
+                        <div class="post-meta">Publicado el 5 de diciembre de 2025 · 4 min de lectura</div>
+                        <p class="post-excerpt">
+                            Frenado automático de emergencia, control crucero adaptativo o alerta de cambio de carril
+                            ya no son exclusivos de los modelos premium. Revisamos qué tecnologías están llegando a los
+                            segmentos más económicos.
+                        </p>
+                        <a class="post-readmore" href="#">Leer noticia completa →</a>
+                    </article>
+                </div>
+            </section>
 
-        // --- FUNCIONALIDAD MODALES ---
-        function openModal(id) {
-            document.getElementById(id).style.display = "block";
-        }
+            <!-- Reseñas -->
+            <section id="reseñas">
+                <h2>Reseñas de autos</h2>
+                <p class="section-subtitle">Opiniones sinceras sobre autos nuevos y usados.</p>
+                <div class="post-list">
+                    <!-- RESEÑA 1 -->
+                    <article>
+                        <div class="post-category">Reseñas</div>
+                        <a href="#">
+                            <h3 class="post-title">Reseña: compacto urbano ideal para el día a día</h3>
+                        </a>
+                        <div class="post-meta">Confort · Consumo · Tecnología</div>
+                        <p class="post-excerpt">
+                            Probamos un hatchback pensado para la ciudad: cómodo, ágil y con un consumo
+                            realmente contenido. Analizamos su espacio interior, motor, seguridad y relación
+                            calidad-precio para ayudarte a decidir si es el auto que necesitas.
+                        </p>
+                        <a class="post-readmore" href="#">Ver reseña completa →</a>
+                    </article>
 
-        function closeModal(id) {
-            document.getElementById(id).style.display = "none";
-        }
+                    <!-- RESEÑA 2 -->
+                    <article>
+                        <div class="post-category">Reseñas</div>
+                        <a href="#">
+                            <h3 class="post-title">SUV familiar: ¿vale la pena pagar más por la versión tope de gama?</h3>
+                        </a>
+                        <div class="post-meta">Espacio · Seguridad · Equipamiento</div>
+                        <p class="post-excerpt">
+                            Los SUVs se han convertido en los favoritos de muchas familias. Te contamos
+                            qué cambia entre una versión básica y una full, y en qué casos tiene sentido
+                            invertir en más equipamiento.
+                        </p>
+                        <a class="post-readmore" href="#">Ver reseña completa →</a>
+                    </article>
+                </div>
+            </section>
 
-        // Cerrar modal al hacer clic fuera
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
-    </script>
+            <!-- Consejos -->
+            <section id="consejos">
+                <h2>Consejos automotrices</h2>
+                <p class="section-subtitle">Guías prácticas para cuidar tu auto y conducir más seguro.</p>
+                <div class="post-list">
+                    <!-- CONSEJO 1 -->
+                    <article>
+                        <div class="post-category">Consejos</div>
+                        <a href="#">
+                            <h3 class="post-title">Mantenimiento básico que puedes hacer tú mismo</h3>
+                        </a>
+                        <div class="post-meta">Nivel básico · Ahorro</div>
+                        <p class="post-excerpt">
+                            Revisar la presión de los neumáticos, controlar niveles de aceite y líquido
+                            refrigerante, cuidar la batería y más tareas sencillas que pueden evitar
+                            averías costosas si se hacen a tiempo.
+                        </p>
+                        <a class="post-readmore" href="#">Leer guía completa →</a>
+                    </article>
+
+                    <!-- CONSEJO 2 -->
+                    <article>
+                        <div class="post-category">Consejos</div>
+                        <a href="#">
+                            <h3 class="post-title">Cómo elegir un auto usado sin llevarte sorpresas</h3>
+                        </a>
+                        <div class="post-meta">Compra inteligente · Checklist</div>
+                        <p class="post-excerpt">
+                            Te compartimos un checklist de puntos clave que debes revisar antes de cerrar
+                            la compra de un vehículo usado: carrocería, interior, motor, papeles y prueba
+                            de manejo.
+                        </p>
+                        <a class="post-readmore" href="#">Ver checklist →</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Sección "Acerca de" para dar más contexto (ayuda para AdSense) -->
+            <section id="acerca-de">
+                <h2>Sobre este blog de autos</h2>
+                <p>
+                    <strong>autospm.autos</strong> es un blog de autos creado para conductores de todos los niveles:
+                    desde quienes compran su primer coche hasta quienes son fanáticos del motor. Nuestro objetivo es
+                    ofrecer contenido original, claro y práctico que te ayude a tomar mejores decisiones y a disfrutar
+                    más de tu vehículo.
+                </p>
+                <p>
+                    Aquí no vas a encontrar publicidad disfrazada de reseña: buscamos analizar los puntos fuertes y
+                    débiles de cada modelo desde una perspectiva realista y pensando en el uso diario.
+                </p>
+            </section>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside>
+            <div class="widget">
+                <h3>Categorías principales</h3>
+                <ul>
+                    <li><a href="#noticias">Noticias del sector</a></li>
+                    <li><a href="#reseñas">Reseñas de modelos</a></li>
+                    <li><a href="#consejos">Mantenimiento y cuidado</a></li>
+                    <li><a href="#consejos">Compra de autos nuevos y usados</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>Temas populares</h3>
+                <span class="badge">Autos eléctricos</span>
+                <span class="badge">SUV familiares</span>
+                <span class="badge">Consumo de combustible</span>
+                <span class="badge">Seguridad</span>
+                <span class="badge">Mantenimiento básico</span>
+                <span class="badge">Autos urbanos</span>
+            </div>
+
+            <div class="widget">
+                <h3>Recibe novedades</h3>
+                <p style="font-size:0.9rem; margin-bottom:0.5rem;">
+                    Déjanos tu correo para recibir nuevas reseñas, noticias y consejos automotrices.
+                </p>
+                <form class="newsletter-form">
+                    <!-- Aquí puedes conectar luego un servicio real tipo Mailchimp -->
+                    <input type="email" placeholder="tu-correo@ejemplo.com">
+                    <button type="submit" class="btn btn-primario">Suscribirme</button>
+                </form>
+            </div>
+
+            <div id="contacto" class="contacto">
+                <h3>Contacto</h3>
+                <p>¿Quieres sugerir un modelo para reseñar o colaborar con el blog?</p>
+                <p>Escríbenos a: <strong>contacto@autospm.autos</strong></p>
+                <!-- Cambia este correo por el tuyo real -->
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>
+            <strong>autospm.autos</strong> · Blog de autos con noticias, reseñas y consejos automotrices.
+        </div>
+        <div class="footer-links">
+            <a href="#acerca-de">Acerca de</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+        </div>
+        <div>
+            &copy; <span id="anio"></span> autospm.autos. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Actualiza automáticamente el año del footer
+    document.getElementById("anio").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
