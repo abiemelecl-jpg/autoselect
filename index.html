@@ -1,606 +1,119 @@
-<!DOCTYPE html>.
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Blog de autos - Noticias, reseñas y consejos automotrices</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Blog de autos con noticias, reseñas de vehículos y consejos automotrices para conductores y amantes del motor.">
-    <meta name="author" content="autospm.autos">
-
-    <!-- Estilos básicos. Puedes moverlos a un .css si quieres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoSPM | Expertos en Mantenimiento y Tecnología Automotriz</title>
+    <meta name="description" content="Tu portal de confianza para guías de mantenimiento, seguridad vial y tendencias del mundo motor en 2025.">
     <style>
-        :root {
-            --color-primario: #e63946;
-            --color-secundario: #1d3557;
-            --color-fondo: #f5f5f5;
-            --color-texto: #222222;
-            --color-blanco: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        header {
-            background: var(--color-secundario);
-            color: var(--color-blanco);
-            padding: 1rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            font-size: 0.95rem;
-            padding: 0.4rem 0.7rem;
-            border-radius: 999px;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        nav a:hover {
-            background: var(--color-primario);
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0b1320, #1d3557);
-            color: var(--color-blanco);
-            padding: 2.5rem 0 2rem;
-        }
-
-        .hero-inner {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            max-width: 36rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 0.35rem 0.7rem;
-            border-radius: 999px;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero-cta {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .btn {
-            display: inline-block;
-            border-radius: 999px;
-            padding: 0.65rem 1.3rem;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .btn-primario {
-            background: var(--color-primario);
-            color: var(--color-blanco);
-        }
-
-        .btn-secundario {
-            background: transparent;
-            color: var(--color-blanco);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .hero-highlight {
-            background: rgba(0,0,0,0.25);
-            border-radius: 0.75rem;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .hero-highlight strong {
-            display: block;
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        main {
-            padding: 2rem 0 3rem;
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
-            gap: 2rem;
-        }
-
-        section {
-            margin-bottom: 2rem;
-        }
-
-        section h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--color-secundario);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Artículos / tarjetas */
-        .post-list {
-            display: grid;
-            gap: 1.2rem;
-        }
-
-        article {
-            background: var(--color-blanco);
-            border-radius: 0.75rem;
-            padding: 1rem 1.1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            transition: transform 0.12s ease, box-shadow 0.12s ease;
-        }
-
-        article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .post-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-primario);
-            margin-bottom: 0.3rem;
-        }
-
-        .post-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .post-meta {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 0.4rem;
-        }
-
-        .post-excerpt {
-            font-size: 0.9rem;
-            margin-bottom: 0.45rem;
-        }
-
-        .post-readmore {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-secundario);
-        }
-
-        /* Sidebar */
-        aside {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .widget {
-            background: var(--color-blanco);
-            padding: 1rem 1.1rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-        }
-
-        .widget h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.6rem;
-            color: var(--color-secundario);
-        }
-
-        .widget ul {
-            list-style: none;
-            font-size: 0.9rem;
-        }
-
-        .widget li + li {
-            margin-top: 0.35rem;
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.55rem;
-            border-radius: 999px;
-            background: #eee;
-            margin: 0.1rem;
-        }
-
-        .newsletter-form input[type="email"] {
-            width: 100%;
-            padding: 0.5rem 0.6rem;
-            border-radius: 0.5rem;
-            border: 1px solid #ccc;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .newsletter-form button {
-            width: 100%;
-            font-size: 0.9rem;
-        }
-
-        /* Sección contacto */
-        .contacto {
-            background: var(--color-blanco);
-            padding: 1.4rem 1.3rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-        }
-
-        .contacto p {
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
-        }
-
-        footer {
-            background: #111827;
-            color: #e5e7eb;
-            padding: 1.5rem 0 2rem;
-            font-size: 0.85rem;
-        }
-
-        .footer-inner {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: #cbd5f5;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-            }
-            .layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding: 0.75rem 1rem;
-            }
-            .hero {
-                padding: 2rem 0 1.5rem;
-            }
-            .hero h1 {
-                font-size: 1.7rem;
-            }
-            nav ul {
-                justify-content: flex-start;
-                gap: 0.5rem;
-            }
-        }
+        :root { --primary: #2c3e50; --accent: #e67e22; --text: #333; --light: #f4f7f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--text); background: var(--light); }
+        header { background: var(--primary); color: white; padding: 60px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        header p { opacity: 0.9; font-style: italic; }
+        
+        .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; }
+        .main-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: var(--primary); margin-top: 0; }
+        .card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+        .card a { display: inline-block; margin-top: 15px; color: var(--accent); text-decoration: none; font-weight: bold; }
+        
+        .legal-footer { background: #ddd; padding: 40px 20px; text-align: center; margin-top: 50px; }
+        .legal-links a { margin: 0 15px; color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+        .legal-links a:hover { text-decoration: underline; }
+        .about-section { background: white; padding: 40px; border-radius: 10px; margin-bottom: 30px; text-align: center; }
     </style>
 </head>
-
 <body>
-<header>
-    <div class="container header-inner">
-        <div class="logo">
-            <!-- Cambia este texto por el nombre de tu marca si quieres -->
-            AUTOSPM AUTOS
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#reseñas">Reseñas</a></li>
-                <li><a href="#consejos">Consejos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+
+    <header>
+        <h1>AUTOSPM.AUTOS</h1>
+        <p>Inteligencia Automotriz a tu Alcance</p>
+    </header>
+
+    <div class="container">
+        <section class="about-section">
+            <h2>Bienvenido a tu Guía Automotriz de Confianza</h2>
+            <p>En AutoSPM nos dedicamos a desglosar la complejidad mecánica y tecnológica de los vehículos modernos. Nuestro objetivo es que cada conductor tome decisiones informadas basadas en datos técnicos, seguridad y economía.</p>
+        </section>
+
+        <main class="main-grid">
+            <div class="card">
+                <h3>Movilidad Eléctrica</h3>
+                <p>3 Errores comunes que acortan la vida útil de la batería de tu auto eléctrico.</p>
+                <a href="mantenimiento-bateria-electrica.html">Leer Guía Técnica →</a>
+            </div>
+
+            <div class="card">
+                <h3>Mercado de Usados</h3>
+                <p>¿Vale la pena comprar un auto con más de 100,000 km? Lo que los vendedores no dicen.</p>
+                <a href="guia-compra-segunda-mano.html">Ver Análisis →</a>
+            </div>
+
+            <div class="card">
+                <h3>Seguridad Activa</h3>
+                <p>Frenos ABS vs Convencionales: Diferencias críticas y consejos en suelo mojado.</p>
+                <a href="seguridad-frenos-abs.html">Saber más →</a>
+            </div>
+
+            <div class="card">
+                <h3>Ahorro y Eficiencia</h3>
+                <p>Técnicas de conducción real para reducir el consumo de combustible hasta un 15%.</p>
+                <a href="ahorro-combustible-tecnicas.html">Ahorrar Gasolina →</a>
+            </div>
+
+            <div class="card">
+                <h3>Inspección Mecánica</h3>
+                <p>Checklist de experto: Cómo revisar un motor usado antes de entregar el dinero.</p>
+                <a href="revision-motor-usado.html">Ver Checklist →</a>
+            </div>
+
+            <div class="card">
+                <h3>Comparativas 2025</h3>
+                <p>Sedán vs SUV: ¿Cuál es la mejor inversión para tu familia y presupuesto?</p>
+                <a href="comparativa-suv-vs-sedan.html">Ver Comparativa →</a>
+            </div>
+
+            <div class="card">
+                <h3>Tecnología y Seguros</h3>
+                <p>El impacto de los sistemas ADAS en las pólizas de seguro: ¿Realmente ahorras?</p>
+                <a href="tecnologia-adas-seguros.html">Analizar Costos →</a>
+            </div>
+
+            <div class="card">
+                <h3>Transmisión Automática</h3>
+                <p>La guía definitiva sobre el mantenimiento de la caja automática y el mito del fluido sellado.</p>
+                <a href="mantenimiento-transmision-automatica.html">Evitar Averías →</a>
+            </div>
+
+            <div class="card">
+                <h3>Seguridad en Neumáticos</h3>
+                <p>Cómo leer los códigos de tus llantas y elegir la mejor según tu clima local.</p>
+                <a href="guia-neumaticos-seguridad.html">Revisar Llantas →</a>
+            </div>
+
+            <div class="card">
+                <h3>Futuro Híbrido</h3>
+                <p>Tendencias 2025: Los modelos híbridos con mejor rendimiento del mercado.</p>
+                <a href="tendencias-hibridos-2025.html">Ver Tendencias →</a>
+            </div>
+        </main>
     </div>
-</header>
 
-<section id="inicio" class="hero">
-    <div class="container hero-inner">
-        <div>
-            <div class="hero-badge">Blog de autos</div>
-            <h1>Noticias, reseñas y consejos automotrices para conductores reales</h1>
-            <p>
-                En <strong>autospm.autos</strong> encontrarás un blog de autos con
-                análisis claros, recomendaciones sinceras y tips prácticos para cuidar tu vehículo,
-                elegir tu próximo coche y mantenerte al día con el mundo del motor.
-            </p>
-            <div class="hero-cta">
-                <a href="#noticias" class="btn btn-primario">Ver últimas noticias</a>
-                <a href="#reseñas" class="btn btn-secundario">Ir a reseñas de autos</a>
-            </div>
+    <footer class="legal-footer">
+        <div class="legal-links">
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos y Condiciones</a>
+            <a href="cookies.html">Política de Cookies</a>
+            <a href="contacto.html">Contacto</a>
         </div>
-        <div class="hero-highlight">
-            <strong>¿Qué encontrarás aquí?</strong>
-            <ul>
-                <li>▶ Resúmenes de las noticias más importantes del sector automotriz.</li>
-                <li>▶ Reseñas honestas de autos nuevos y usados.</li>
-                <li>▶ Consejos de mantenimiento para alargar la vida de tu vehículo.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<main class="container">
-    <div class="layout">
-        <!-- CONTENIDO PRINCIPAL -->
-        <div>
-            <!-- Noticias -->
-            <section id="noticias">
-                <h2>Noticias de autos</h2>
-                <p class="section-subtitle">Actualidad del mundo automotriz, lanzamientos y tendencias.</p>
-                <div class="post-list">
-                    <!-- NOTICIA 1 -->
-                    <article>
-                        <div class="post-category">Noticias</div>
-                        <a href="#">
-                            <h3 class="post-title">Las nuevas tendencias en autos híbridos y eléctricos en 2025</h3>
-                        </a>
-                        <div class="post-meta">Publicado el 10 de diciembre de 2025 · 5 min de lectura</div>
-                        <p class="post-excerpt">
-                            Los fabricantes están apostando por motores más eficientes, mejores autonomías
-                            y sistemas de carga rápida. Te contamos qué marcas están liderando el cambio y qué
-                            debes tener en cuenta si piensas dar el salto a un auto electrificado.
-                        </p>
-                        <a class="post-readmore" href="#">Leer noticia completa →</a>
-                    </article>
-
-                    <!-- NOTICIA 2 -->
-                    <article>
-                        <div class="post-category">Noticias</div>
-                        <a href="#">
-                            <h3 class="post-title">Sistemas de asistencia al conductor: qué traen ahora los modelos de entrada</h3>
-                        </a>
-                        <div class="post-meta">Publicado el 5 de diciembre de 2025 · 4 min de lectura</div>
-                        <p class="post-excerpt">
-                            Frenado automático de emergencia, control crucero adaptativo o alerta de cambio de carril
-                            ya no son exclusivos de los modelos premium. Revisamos qué tecnologías están llegando a los
-                            segmentos más económicos.
-                        </p>
-                        <a class="post-readmore" href="noticias-tendencias-electricos-2025.html">
-    Leer noticia completa →
-                        </a>
-                        
-                    </article>
-                </div>
-            </section>
-
-            <!-- Reseñas -->
-            <section id="reseñas">
-                <h2>Reseñas de autos</h2>
-                <p class="section-subtitle">Opiniones sinceras sobre autos nuevos y usados.</p>
-                <div class="post-list">
-                    <!-- RESEÑA 1 -->
-                    <article>
-                        <div class="post-category">Reseñas</div>
-                        <a href="#">
-                            <h3 class="post-title">Reseña: compacto urbano ideal para el día a día</h3>
-                        </a>
-                        <div class="post-meta">Confort · Consumo · Tecnología</div>
-                        <p class="post-excerpt">
-                            Probamos un hatchback pensado para la ciudad: cómodo, ágil y con un consumo
-                            realmente contenido. Analizamos su espacio interior, motor, seguridad y relación
-                            calidad-precio para ayudarte a decidir si es el auto que necesitas.
-                        </p>
-                        <a class="post-readmore" href="#">Ver reseña completa →</a>
-                    </article>
-
-                    <!-- RESEÑA 2 -->
-                    <article>
-                        <div class="post-category">Reseñas</div>
-                        <a href="#">
-                            <h3 class="post-title">SUV familiar: ¿vale la pena pagar más por la versión tope de gama?</h3>
-                        </a>
-                        <div class="post-meta">Espacio · Seguridad · Equipamiento</div>
-                        <p class="post-excerpt">
-                            Los SUVs se han convertido en los favoritos de muchas familias. Te contamos
-                            qué cambia entre una versión básica y una full, y en qué casos tiene sentido
-                            invertir en más equipamiento.
-                        </p>
-                        <a class="post-readmore" href="reseña-suv-familiar-2025.html">
-    Ver reseña completa →
-                        </a>
-                        
-                    </article>
-                </div>
-            </section>
-
-            <!-- Consejos -->
-            <section id="consejos">
-                <h2>Consejos automotrices</h2>
-                <p class="section-subtitle">Guías prácticas para cuidar tu auto y conducir más seguro.</p>
-                <div class="post-list">
-                    <!-- CONSEJO 1 -->
-                    <article>
-                        <div class="post-category">Consejos</div>
-                        <a href="#">
-                            <h3 class="post-title">Mantenimiento básico que puedes hacer tú mismo</h3>
-                        </a>
-                        <div class="post-meta">Nivel básico · Ahorro</div>
-                        <p class="post-excerpt">
-                            Revisar la presión de los neumáticos, controlar niveles de aceite y líquido
-                            refrigerante, cuidar la batería y más tareas sencillas que pueden evitar
-                            averías costosas si se hacen a tiempo.
-                        </p>
-                        <a class="post-readmore" href="#">Leer guía completa →</a>
-                    </article>
-
-                    <!-- CONSEJO 2 -->
-                    <article>
-                        <div class="post-category">Consejos</div>
-                        <a href="#">
-                            <h3 class="post-title">Cómo elegir un auto usado sin llevarte sorpresas</h3>
-                        </a>
-                        <div class="post-meta">Compra inteligente · Checklist</div>
-                        <p class="post-excerpt">
-                            Te compartimos un checklist de puntos clave que debes revisar antes de cerrar
-                            la compra de un vehículo usado: carrocería, interior, motor, papeles y prueba
-                            de manejo.
-                        </p>
-                        <a class="post-readmore" href="guia-comprar-auto-usado-2025.html">
-    Ver checklist →
-                        </a>
-                        
-                    </article>
-                </div>
-            </section>
-
-            <!-- Sección "Acerca de" para dar más contexto (ayuda para AdSense) -->
-            <section id="acerca-de">
-                <h2>Sobre este blog de autos</h2>
-                <p>
-                    <strong>autospm.autos</strong> es un blog de autos creado para conductores de todos los niveles:
-                    desde quienes compran su primer coche hasta quienes son fanáticos del motor. Nuestro objetivo es
-                    ofrecer contenido original, claro y práctico que te ayude a tomar mejores decisiones y a disfrutar
-                    más de tu vehículo.
-                </p>
-                <p>
-                    Aquí no vas a encontrar publicidad disfrazada de reseña: buscamos analizar los puntos fuertes y
-                    débiles de cada modelo desde una perspectiva realista y pensando en el uso diario.
-                </p>
-            </section>
-        </div>
-
-        <!-- SIDEBAR -->
-        <aside>
-            <div class="widget">
-                <h3>Categorías principales</h3>
-                <ul>
-                    <li><a href="#noticias">Noticias del sector</a></li>
-                    <li><a href="#reseñas">Reseñas de modelos</a></li>
-                    <li><a href="#consejos">Mantenimiento y cuidado</a></li>
-                    <li><a href="#consejos">Compra de autos nuevos y usados</a></li>
-                </ul>
-            </div>
-
-            <div class="widget">
-                <h3>Temas populares</h3>
-                <span class="badge">Autos eléctricos</span>
-                <span class="badge">SUV familiares</span>
-                <span class="badge">Consumo de combustible</span>
-                <span class="badge">Seguridad</span>
-                <span class="badge">Mantenimiento básico</span>
-                <span class="badge">Autos urbanos</span>
-            </div>
-
-            <div class="widget">
-                <h3>Recibe novedades</h3>
-                <p style="font-size:0.9rem; margin-bottom:0.5rem;">
-                    Déjanos tu correo para recibir nuevas reseñas, noticias y consejos automotrices.
-                </p>
-                <form class="newsletter-form">
-                    <!-- Aquí puedes conectar luego un servicio real tipo Mailchimp -->
-                    <input type="email" placeholder="tu-correo@ejemplo.com">
-                    <button type="submit" class="btn btn-primario">Suscribirme</button>
-                </form>
-            </div>
-
-            <div id="contacto" class="contacto">
-                <h3>Contacto</h3>
-                <p>¿Quieres sugerir un modelo para reseñar o colaborar con el blog?</p>
-                <p>Escríbenos a: <strong>contacto@autospm.autos</strong></p>
-                <!-- Cambia este correo por el tuyo real -->
-            </div>
-        </aside>
-    </div>
-</main>
-
-<footer>
-    <div class="container footer-inner">
-        <div>
-            <strong>autospm.autos</strong> · Blog de autos con noticias, reseñas y consejos automotrices.
-        </div>
-        <div class="footer-links">
-            <a href="privacidad.html">Política de privacidad</a>
-<a href="terminos.html">Términos y condiciones</a>
-<a href="contacto.html">Contacto</a>
-            
-        </div>
-        <div>
-            &copy; <span id="anio"></span> autospm.autos. Todos los derechos reservados.
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Actualiza automáticamente el año del footer
-    document.getElementById("anio").textContent = new Date().getFullYear();
-</script>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">
+            &copy; 2025 AutoSPM. Todos los derechos reservados. El contenido de este sitio es puramente informativo.
+        </p>
+    </footer>
 
 </body>
 </html>
